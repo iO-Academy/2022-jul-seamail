@@ -3,7 +3,7 @@ import UserProfile from "../UserProfile"
 
 const TopNav = () => {
     return (
-        <div className="container">
+        <div className="container-fluid">
             <nav className="row navbar bg-secondary">
                 <div className="col-3 col-lg-6 d-flex justify-content-start align-self-center d-lg-none">
                     <MobileMenuButton />
