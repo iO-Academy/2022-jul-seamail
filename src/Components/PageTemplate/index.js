@@ -3,13 +3,13 @@ import SideNav from "../SideNav";
 import TopNav from "../TopNav";
 
 const PageTemplate = () => {
-    const [emails, setemails] = useState(null)
+    const [emails, setEmails] = useState(null)
 
     const getEmails = () => {
             fetch ("http://localhost:8080/emails")
             .then(data => data.json())
             .then((response) => {
-                setemails (response.data)
+                setEmails (response.data)
             }
         )
     }
@@ -31,7 +31,6 @@ const PageTemplate = () => {
             <div className="col-6">test</div>
         </section>
         </>
-        
     )
 }
 export default PageTemplate
