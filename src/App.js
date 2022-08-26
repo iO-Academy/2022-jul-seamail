@@ -1,12 +1,11 @@
 import './App.scss';
+import TopNav from './Components/TopNav';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Welcome to seamail
-        </p>
+        <TopNav />
       </header>
     </div>
   );
