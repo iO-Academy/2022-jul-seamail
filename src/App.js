@@ -1,13 +1,11 @@
 import './App.scss';
-import TopNav from './Components/TopNav';
+import PageTemplate from './Components/PageTemplate';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <TopNav />
-      </header>
-    </div>
+      <>
+        <PageTemplate />
+      </>
   );
 }
 
