@@ -3,6 +3,7 @@ import UserProfile from "../UserProfile"
 import './style.scss';
 
 
+
 const TopNav = ({setSideNavVisible, sideNavVisible}) => {
     return (
         <div className="container-fluid">

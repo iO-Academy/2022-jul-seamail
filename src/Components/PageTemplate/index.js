@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
 import SideNav from "../SideNav";
 import TopNav from "../TopNav";
+import { useWindowWidth } from "@react-hook/window-size";
+
+
 
 const PageTemplate = (props) => {
     const [emails, setEmails] = useState(null)
     const [sideNavVisible, setSideNavVisible] = useState(false)
-    
+    const screenWidth = useWindowWidth()
+
+
+    useEffect(() => {
+        if(screenWidth > 576) {
+            setSideNavVisible(true)
+        } else {
+            setSideNavVisible(false)
+        }
+
+    }, [screenWidth])
+
     const getEmails = () => {
             fetch ("http://localhost:8080/emails")
             .then(data => data.json())
@@ -27,6 +41,7 @@ const PageTemplate = (props) => {
                 sideNavVisible={sideNavVisible}  />
         </section>
         <section className="row">
+           
             {sideNavVisible &&
                 <div className="col-6 col-lg-2">
                     <SideNav />
