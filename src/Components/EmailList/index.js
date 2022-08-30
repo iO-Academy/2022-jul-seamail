@@ -1,11 +1,10 @@
+import EmailPreview from "../EmailPreview"
+
 const EmailList = (emails) => {
-    console.log(emails)
 
     return (
         <>
-            <div>
-                
-            </div>
+            <EmailPreview emails={emails} />
         </>
     )
 }
