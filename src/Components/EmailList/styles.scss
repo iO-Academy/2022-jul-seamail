@@ -1,0 +1,6 @@
+.listContainer {
+    scrollbar-width: none;
+}
+.listContainer::-webkit-scrollbar { 
+    display: none;
+}

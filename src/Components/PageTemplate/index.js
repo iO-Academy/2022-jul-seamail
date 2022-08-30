@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EmailDisplay from "../EmailDisplay";
+import EmailList from "../EmailList";
 import SideNav from "../SideNav";
 import TopNav from "../TopNav";
 
@@ -25,14 +26,13 @@ const PageTemplate = () => {
             <TopNav />
         </section>
         <section className="row">
-            <div className="col-2">
+            <div className="col-2 p-0">
                 <SideNav />
             </div>
-            <div className="col-4">
+            <div className="col-3 p-0">
+                <EmailList emails={emails}/>
             </div>
-            <div className="col-6">
-                <EmailDisplay />
-            </div>
+            <div className="col-7 p-0"><EmailDisplay /></div>
         </section>
         </>
     )
