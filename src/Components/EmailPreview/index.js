@@ -1,9 +1,9 @@
 const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview }) => {
 
     const applyStyles = () => {
-        if (read) {
+        if (read == 1) {
             return "read text-bg-light"
-        } else {
+        } else if (read == 0) {
             return "unRead text-bg-secondary "
         }
     }
