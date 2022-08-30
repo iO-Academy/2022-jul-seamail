@@ -1,11 +1,12 @@
 import EmailPreview from "../EmailPreview"
+import NoEmails from "../NoEmails"
 
 const EmailList = ({ emails }) => {
     return (
         <div className="vh-100 overflow-auto">
             {
                 !emails &&
-                <p>Loading...</p>
+                <NoEmails />
             }
 
             {
