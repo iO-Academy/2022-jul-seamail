@@ -24,11 +24,11 @@ const PageTemplate = () => {
             <TopNav />
         </section>
         <section className="row">
-            <div className="col-2">
+            <div className="d-none d-sm-block col-lg-2">
                 <SideNav />
             </div>
-            <div className="col-4">test</div>
-            <div className="col-6">test</div>
+            <div className="col-12 col-lg-4">Email List</div>
+            <div className="d-none d-sm-block col-6 col-lg-6">Email Container</div>
         </section>
         </>
     )
