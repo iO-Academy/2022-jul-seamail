@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EmailList from "../EmailList";
 import SideNav from "../SideNav";
 import TopNav from "../TopNav";
 
@@ -27,7 +28,9 @@ const PageTemplate = () => {
             <div className="col-2">
                 <SideNav />
             </div>
-            <div className="col-4">test</div>
+            <div className="col-4">
+                <EmailList emails={emails}/>
+            </div>
             <div className="col-6">test</div>
         </section>
         </>
