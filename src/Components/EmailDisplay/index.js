@@ -4,13 +4,13 @@ const EmailDisplay = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-10">
+                <div className="col-9 col-lg-10">
                     <p className="fs-5 fw-bold mt-2 mb-0">Maria Smith</p>
                     <p className="fs-6 fw-bold mb-1">maria.smith@fakecompany.com</p>
                     <p className="fs-4 fw-bold">Hello world</p>
                 </div>
-                <div className="col-2">
-                    <p className="fs-6 fw-bold mt-2 align-item-center">23/07/2022</p>
+                <div className="col-3 col-lg-2 d-flex">
+                    <p className="fs-6 fw-bold mt-2 align-self-center">23/07/2022</p>
                 </div>
                 <div className="testEmail col-12 border-bottom lh-lg">
                     <p className="fs-6">

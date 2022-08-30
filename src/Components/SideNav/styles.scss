@@ -7,10 +7,13 @@
     }
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 992px) {
     .sideNavContainer {
         position: absolute;
-        width: 150px;
     }
-    
 }
+
+
+
+
+

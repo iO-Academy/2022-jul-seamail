@@ -16,7 +16,7 @@ const EmailNavLinks = ({ emails }) => {
     })
 
     return (
-        <div className="row px-3 py-3">
+        <div className="row ps-3 pe-5 py-3">
             <div className="col-1 d-flex justify-content-between">
                 <a className="fw-bold text-decoration-none me-3">Inbox</a>
                 
