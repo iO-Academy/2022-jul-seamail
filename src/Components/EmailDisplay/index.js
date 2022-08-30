@@ -4,10 +4,6 @@ const EmailDisplay = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="emailButtons col-12 d-flex justify-content-end border-bottom">
-                    <button type="button" className="btn btn-danger btn-sm my-2">Delete</button>
-                    <button type="button" className="btn btn-primary mx-2 btn-sm my-2">Reply</button>
-                </div>
                 <div className="col-10">
                     <p className="fs-5 fw-bold mt-2 mb-0">Maria Smith</p>
                     <p className="fs-6 fw-bold mb-1">maria.smith@fakecompany.com</p>
