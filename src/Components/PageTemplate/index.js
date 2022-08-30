@@ -25,13 +25,13 @@ const PageTemplate = () => {
             <TopNav />
         </section>
         <section className="row">
-            <div className="col-2">
+            <div className="col-2 p-0">
                 <SideNav />
             </div>
-            <div className="col-4">
+            <div className="col-3 p-0">
                 <EmailList emails={emails}/>
             </div>
-            <div className="col-6">test</div>
+            <div className="col-7 p-0">test</div>
         </section>
         </>
     )

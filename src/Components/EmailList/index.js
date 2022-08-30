@@ -1,11 +1,11 @@
 import EmailPreview from "../EmailPreview"
 
-const EmailList = ({emails}) => {
+const EmailList = ({ emails }) => {
     return (
-        <>
+        <div className="vh-100 overflow-auto">
             {
                 !emails &&
-                <p>loading</p>
+                <p>Loading...</p>
             }
 
             {
@@ -22,7 +22,7 @@ const EmailList = ({emails}) => {
                     />
                 ))} </>)
             }
-        </>
+        </div>
     )
 }
 
