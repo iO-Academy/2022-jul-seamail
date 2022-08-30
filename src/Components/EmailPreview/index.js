@@ -1,4 +1,4 @@
-const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read }) => {
+const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview }) => {
 
     const applyStyles = () => {
         if (read) {
@@ -11,10 +11,11 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read }) =>
     return (
         <div className={"border p-3 " + applyStyles()}>
             <div className="row">
-                <h4 className="col-6">{name}</h4>
-                <h5 className="col-6 text-end">{dateCreated.slice(0, 10)}</h5>
+                <h5 className="col-6">{name}</h5>
+                <h6 className="col-6 text-end">{dateCreated.slice(0, 10)}</h6>
             </div>
-            <h6>{subject}</h6>
+            <p>{subject}</p>
+            <p>{bodyPreview}</p>
         </div>
     )
 }

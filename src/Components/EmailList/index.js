@@ -20,6 +20,7 @@ const EmailList = ({ emails }) => {
                         subject={email.subject}
                         dateCreated={email.date_created}
                         read={email.read}
+                        // bodyPreview={email.}
                     />
                 ))} </>)
             }
