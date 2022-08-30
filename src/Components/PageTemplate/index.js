@@ -40,13 +40,11 @@ const PageTemplate = (props) => {
                 sideNavVisible={sideNavVisible}  />
         </section>
         <section className="row gx-0">
-
             {sideNavVisible &&
                 <div className="col-6 col-sm-2 col-md-2 col-lg-1 p-0 gx-0">
-                    <SideNav />
+                    <SideNav emails={emails}/>
                 </div>
             }
-
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
                 <EmailList emails={emails} />
             </div>
