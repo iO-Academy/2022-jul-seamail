@@ -6,7 +6,7 @@ const EmailList = ({ emails }) => {
     return (
         <div className="listContainer vh-100 overflow-auto">
             {
-                !emails &&
+                !emails || emails.length == 0 &&
                 <NoEmails />
             }
 

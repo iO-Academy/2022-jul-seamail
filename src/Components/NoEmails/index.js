@@ -1,6 +1,6 @@
 const NoEmails = () => {
     return (
-        <p>There are no emails to display</p>
+        <p className="p-3">There are no emails to display</p>
     )
 }
 

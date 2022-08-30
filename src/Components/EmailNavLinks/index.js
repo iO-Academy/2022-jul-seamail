@@ -19,14 +19,7 @@ const EmailNavLinks = ({ emails }) => {
         <div className="row px-3 py-3">
             <div className="col-1 d-flex justify-content-between">
                 <a className="fw-bold text-decoration-none me-3">Inbox</a>
-                
-                {!emails && (
-                    <p className="fw-bold bg-warning rounded-1 py-0 px-1">0</p>
-                )}
-
-                {emails && (
-                    <p className="fw-bold bg-warning rounded-1 py-0 px-1">{unRead}</p>
-                )}
+                <p className="fw-bold bg-warning rounded-1 py-0 px-1">{emails ? unRead : "0"}</p>
             </div>
         </div>
     )

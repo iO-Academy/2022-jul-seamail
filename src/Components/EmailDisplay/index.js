@@ -12,16 +12,14 @@ const EmailDisplay = () => {
                 <div className="col-2">
                     <p className="fs-6 fw-bold mt-2 align-item-center">23/07/2022</p>
                 </div>
-                <div className="testEmail col-12 border-bottom lh-lg">
-                    <p className="fs-6">
-                    Hello world, <br></br>
-                    This is my first email. <br></br>
-                    I am looking forward to speaking with you. <br></br>
-                    Could you please click this link and schedule a time and date for our call? <br></br>
-                    If you have any questions about the call, just reply to this email. I will get back to you ASAP. <br></br>
-                    Thank you, <br></br>
-                    Maria
-                    </p>
+                <div className="emailBody col-12 border-bottom lh-lg">
+                    <p className="fs-6">Hello world,</p>
+                    <p className="fs-6">This is my first email.</p>
+                    <p className="fs-6">I am looking forward to speaking with you.</p>
+                    <p className="fs-6">Could you please click this link and schedule a time and date for our call?</p>
+                    <p className="fs-6">If you have any questions about the call, just reply to this email. I will get back to you ASAP.</p>
+                    <p className="fs-6">Thank you,</p>
+                    <p className="fs-6">Maria</p>
                 </div>
             </div>
         </div>
