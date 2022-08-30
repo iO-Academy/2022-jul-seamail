@@ -14,7 +14,7 @@ const EmailDisplay = () => {
             <p className="fs-4 fw-bold">Hello world</p>
         </div>
         <div className="col-2">
-            <p className="fs-8 fw-bold mt-2 align-item-center">23/07/2022</p>
+            <p className="fs-6 fw-bold mt-2 align-item-center">23/07/2022</p>
         </div>
         <div className="testEmail col-12 border-bottom lh-lg">
             <p className="fs-6">
