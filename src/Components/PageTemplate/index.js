@@ -18,7 +18,7 @@ const PageTemplate = () => {
     useEffect(() => {
         getEmails()
     },[])
-        
+
     return (
         <>
         <section className="row">
@@ -26,7 +26,7 @@ const PageTemplate = () => {
         </section>
         <section className="row">
             <div className="col-2 p-0">
-                <SideNav />
+                <SideNav emails={emails}/>
             </div>
             <div className="col-3 p-0">
                 <EmailList emails={emails}/>
