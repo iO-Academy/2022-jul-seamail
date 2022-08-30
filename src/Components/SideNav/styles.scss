@@ -6,3 +6,11 @@
         color: #ffffff;
     }
 }
+
+@media (max-width: 576px) {
+    .sideNavContainer {
+        position: absolute;
+        width: 150px;
+    }
+    
+}
