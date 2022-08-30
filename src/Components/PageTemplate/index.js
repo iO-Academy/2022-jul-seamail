@@ -29,7 +29,6 @@ const PageTemplate = () => {
                 <SideNav />
             </div>
             <div className="col-4">
-        
             </div>
             <div className="col-6">
                 <EmailDisplay />
