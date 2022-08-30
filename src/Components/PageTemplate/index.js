@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
+import EmailDisplay from "../EmailDisplay";
 import EmailList from "../EmailList";
 import SideNav from "../SideNav";
 import TopNav from "../TopNav";
+import { useWindowWidth } from "@react-hook/window-size";
 
-const PageTemplate = () => {
+const PageTemplate = (props) => {
     const [emails, setEmails] = useState(null)
+    const [sideNavVisible, setSideNavVisible] = useState(false)
+    const screenWidth = useWindowWidth()
+
+    useEffect(() => {
+        if(screenWidth > 576) {
+            setSideNavVisible(true)
+        } else {
+            setSideNavVisible(false)
+        }
+
+    }, [screenWidth])
 
     const getEmails = () => {
             fetch ("http://localhost:8080/emails")
@@ -21,17 +34,23 @@ const PageTemplate = () => {
 
     return (
         <>
-        <section className="row">
-            <TopNav />
+        <section className="row gx-0">
+            <TopNav 
+                setSideNavVisible={setSideNavVisible}
+                sideNavVisible={sideNavVisible}  />
         </section>
-        <section className="row">
-            <div className="col-2 p-0">
-                <SideNav emails={emails}/>
+        <section className="row gx-0">
+            {sideNavVisible &&
+                <div className="col-6 col-sm-2 col-md-2 col-lg-1 p-0 gx-0">
+                    <SideNav emails={emails}/>
+                </div>
+            }
+            <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
+                <EmailList emails={emails} />
             </div>
-            <div className="col-3 p-0">
-                <EmailList emails={emails}/>
+            <div className="d-none d-sm-block col-sm-6 col-6 col-md-6 col-lg-6 gx-0">
+                <EmailDisplay />
             </div>
-            <div className="col-7 p-0">test</div>
         </section>
         </>
     )
