@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import CloseButton from '../CloseButton';
 import './styles.scss';
 
-const EmailDisplay = ({ emails, emailToBeDisplayedId }) => {
+const EmailDisplay = ({ emails, emailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth}) => {
 
     const [emailToBeDisplayed, setEmailToBeDisplayed] = useState(null)
 
@@ -27,7 +27,7 @@ const EmailDisplay = ({ emails, emailToBeDisplayedId }) => {
         <div className="container">
             <div className="row">
                 <div className="d-flex text-center">
-                    <p className="d-flex "><CloseButton /></p>
+                    <p className="d-flex ">{screenWidth < 576 ? <CloseButton emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible} /> : ""} </p>
                 </div>
                 <div className="d-flex col-12 col-lg-10 justify-content-between">
                     <p className="fs-5 fw-bold mt-0 mb-0">{emailToBeDisplayed ? emailToBeDisplayed.name : ""}</p>

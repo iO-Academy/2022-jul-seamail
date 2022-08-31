@@ -1,7 +1,13 @@
 
-const CloseButton = () => {
+const CloseButton = ({emailDisplayVisible, setEmailDisplayVisible}) => {
 
-    return <button type="button" class="btn-close" aria-label="Close"></button>
+    const handleClick = () => {
+
+        setEmailDisplayVisible(!emailDisplayVisible)
+    } 
+
+    return <button onClick={handleClick} type="button" className="btn-close" aria-label="Close"></button>
+
 }
 
 export default CloseButton

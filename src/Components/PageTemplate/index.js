@@ -62,7 +62,7 @@ const PageTemplate = (props) => {
             </div>
             {emailDisplayVisible &&
             <div className="emailDisplayContainer d-sm-block col-sm-6 col-6 col-md-8 col-lg-7 gx-0">
-                <EmailDisplay emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} />
+                <EmailDisplay emails={emails} screenWidth={screenWidth} emailToBeDisplayedId={emailToBeDisplayedId} emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible}/>
             </div>
             }
         </section>
