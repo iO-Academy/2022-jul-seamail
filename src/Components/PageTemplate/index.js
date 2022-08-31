@@ -61,7 +61,7 @@ const PageTemplate = (props) => {
                 <EmailList emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} setEmailToBeDisplayedId={setEmailToBeDisplayedId} emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible} screenWidth={screenWidth}/>
             </div>
             {emailDisplayVisible &&
-            <div className="emailDisplayContainer d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">
+            <div className="emailDisplayContainer d-sm-block col-sm-6 col-6 col-md-8 col-lg-7 gx-0">
                 <EmailDisplay emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} />
             </div>
             }
