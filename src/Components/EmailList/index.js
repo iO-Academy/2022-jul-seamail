@@ -2,8 +2,9 @@ import EmailPreview from "../EmailPreview"
 import NoEmails from "../NoEmails"
 import NewEmailForm from "../NewEmailForm"
 import "./styles.scss"
+import { useEffect, useState } from "react";
 
-const EmailList = ({ emails }) => {
+const EmailList = ({ emails, newEmailVisible, setNewEmailVisible }) => {
 
     const displayEmailPreviews = (emails) => {
         if (!emails || emails.length == 0) {
@@ -26,9 +27,14 @@ const EmailList = ({ emails }) => {
 
     return (
         <>
+
+         {newEmailVisible &&
         <div className="position-absolute col-lg-6 col-12 vh-100">
-            <NewEmailForm />
+            <NewEmailForm 
+                setNewEmailVisible={setNewEmailVisible}
+                newEmailVisible={newEmailVisible} />
         </div>
+        }
         <div className="listContainer vh-100 overflow-auto">
             {displayEmailPreviews(emails)}
         </div>
