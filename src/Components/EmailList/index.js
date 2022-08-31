@@ -1,5 +1,6 @@
 import EmailPreview from "../EmailPreview"
 import NoEmails from "../NoEmails"
+import NewEmailForm from "../NewEmailForm"
 import "./styles.scss"
 
 const EmailList = ({ emails }) => {
@@ -24,9 +25,14 @@ const EmailList = ({ emails }) => {
     }
 
     return (
+        <>
+        <div>
+            <NewEmailForm />
+        </div>
         <div className="listContainer vh-100 overflow-auto">
             {displayEmailPreviews(emails)}
         </div>
+        </>
     )
 }
 
