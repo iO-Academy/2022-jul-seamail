@@ -69,7 +69,6 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
             })
             .then(data => data.json())
             .then((response) => {
-                console.log(response)
                 setEmailSentSuccess(response.data.sent)
             })
         })  
