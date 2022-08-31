@@ -26,7 +26,7 @@ const EmailList = ({ emails }) => {
 
     return (
         <>
-        <div>
+        <div className="position-absolute col-lg-6 col-12 vh-100">
             <NewEmailForm />
         </div>
         <div className="listContainer vh-100 overflow-auto">
