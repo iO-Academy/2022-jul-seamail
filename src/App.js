@@ -1,14 +1,11 @@
-import './App.css';
+import './App.scss';
+import PageTemplate from './Components/PageTemplate';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Welcome to seamail
-        </p>
-      </header>
-    </div>
+      <>
+        <PageTemplate />
+      </>
   );
 }
 
