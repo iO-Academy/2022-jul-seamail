@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CloseButton from '../CloseButton';
 import './styles.scss';
 
 const EmailDisplay = ({ emails, emailToBeDisplayedId }) => {
@@ -25,13 +26,18 @@ const EmailDisplay = ({ emails, emailToBeDisplayedId }) => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-9 col-lg-10">
-                    <p className="fs-5 fw-bold mt-2 mb-0">{emailToBeDisplayed ? emailToBeDisplayed.name : ""}</p>
-                    <p className="fs-6 fw-bold mb-1">{emailToBeDisplayed ? emailToBeDisplayed.email : ""}</p>
-                    <p className="fs-4 fw-bold">{emailToBeDisplayed ? emailToBeDisplayed.subject : ""}</p>
+                <div className="d-flex text-center">
+                    <p className="d-flex "><CloseButton /></p>
                 </div>
-                <div className="col-3 col-lg-2 d-flex">
-                    <p className="fs-6 fw-bold mt-2 align-self-center">{emailToBeDisplayed ? emailToBeDisplayed.date_created.slice(0, 10).replace(/-/g, "/") : ""}</p>
+                <div className="d-flex col-12 col-lg-10 justify-content-between">
+                    <p className="fs-5 fw-bold mt-0 mb-0">{emailToBeDisplayed ? emailToBeDisplayed.name : ""}</p>
+                    <p className="fs-6 fw-bold mt-0 align-self-center">{emailToBeDisplayed ? emailToBeDisplayed.date_created.slice(0, 10).replace(/-/g, "/") : ""}</p>
+                </div>
+                <div>
+                    <p className="fs-6 fw-bold mb-1">{emailToBeDisplayed ? emailToBeDisplayed.email : ""}</p>    
+                </div> 
+                <div>   
+                    <p className="fs-4 fw-bold">{emailToBeDisplayed ? emailToBeDisplayed.subject : ""}</p>
                 </div>
                 <div className="emailBody col-12 border-bottom lh-lg">
                     <p className="fs-6">{emailToBeDisplayed ? emailToBeDisplayed.body : ""}</p>
