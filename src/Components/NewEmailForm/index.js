@@ -63,7 +63,7 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
                 <span className='text-danger'>{emailSubjectValid === false ? 'Email subject empty' : ''}</span>
             </div>
             <div className="input-group mb-4">
-                <textarea onBlur={validateBody}  onChange={handleBodyChange} className="form-control emailBody" rows='10' aria-label="With textarea" placeholder="Write your email here">{emailBody}</textarea>
+                <textarea onBlur={validateBody}  onChange={handleBodyChange} value={emailBody} className="form-control emailBody" rows='10' aria-label="With textarea" placeholder="Write your email here"></textarea>
                 <div className='text-danger'>{emailBodyValid === false ? ' Email body empty' : ''}</div>
             </div>
         </form>
