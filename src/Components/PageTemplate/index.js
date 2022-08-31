@@ -58,7 +58,7 @@ const PageTemplate = (props) => {
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
-                <EmailList emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} setEmailToBeDisplayedId={setEmailToBeDisplayedId} emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible}/>
+                <EmailList emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} setEmailToBeDisplayedId={setEmailToBeDisplayedId} emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible} screenWidth={screenWidth}/>
             </div>
             {emailDisplayVisible &&
             <div className="emailDisplayContainer d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">
