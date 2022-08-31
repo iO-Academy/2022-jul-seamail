@@ -5,7 +5,7 @@ const SideNav = ({ emails }) => {
 
     return (
             <>
-                <div className="sideNavContainer">
+                <div className="">
                     <EmailNavLinks emails={emails}/>
                 </div>
             </>
