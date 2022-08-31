@@ -100,10 +100,10 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
                 <textarea onBlur={validateBody}  onChange={handleBodyChange} value={emailBody} className="form-control emailBody" rows='10' aria-label="With textarea" placeholder="Write your email here"></textarea>
                 <div className='text-danger'>{emailBodyValid === false ? 'Email body empty' : ''}</div>
             </div>
-            <div className="form-group">
-                <input type='submit' id="btn-success" value="Send Email" />
+            <div className="d-flex form-group justify-content-end mb-2">
+                <input type='submit' className="btn btn-success" id="btn-success" value="Send" />
             </div>
-                <span className='text-success'>{emailSentSuccess === true ? 'Email Sent' : ''}</span>
+                <p className='text-success text-end'>{emailSentSuccess === true ? 'Email Sent' : ''}</p>
         </form>
     )
 }
