@@ -1,6 +1,29 @@
+import { useState, useEffect } from 'react';
 import './styles.scss';
 
-const EmailDisplay = () => {
+const EmailDisplay = ({ emails, emailToBeDisplayedId }) => {
+
+    const [emailToBeDisplayed, setEmailToBeDisplayed] = useState(null)
+
+    const getEmailToBeDisplayed = () => {
+        fetch ("http://localhost:8080/emails")
+        .then(data => data.json())
+        .then((responses) => {
+            responses.data.map((response) => {
+                if(response.id == emailToBeDisplayedId) {
+                    setEmailToBeDisplayed(response)
+                }
+            })
+        }
+    )
+}
+
+    useEffect(() => {
+        getEmailToBeDisplayed()
+        console.log(emailToBeDisplayedId)
+        console.log(emailToBeDisplayed)
+    },[emailToBeDisplayedId])
+    
     return (
         <div className="container">
             <div className="row">

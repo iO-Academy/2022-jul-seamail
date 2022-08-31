@@ -32,6 +32,8 @@ const PageTemplate = (props) => {
         getEmails()
     },[])
 
+    const [emailToBeDisplayedId, setEmailToBeDisplayedId] = useState("null")
+
     return (
         <>
         <section className="row gx-0">
@@ -46,10 +48,10 @@ const PageTemplate = (props) => {
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
-                <EmailList emails={emails} />
+                <EmailList emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} setEmailToBeDisplayedId={setEmailToBeDisplayedId} />
             </div>
             <div className="d-none d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">
-                <EmailDisplay />
+                <EmailDisplay emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} />
             </div>
         </section>
         </>

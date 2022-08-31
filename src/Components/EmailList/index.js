@@ -2,7 +2,7 @@ import EmailPreview from "../EmailPreview"
 import NoEmails from "../NoEmails"
 import "./styles.scss"
 
-const EmailList = ({ emails }) => {
+const EmailList = ({ emails, emailToBeDisplayedId , setEmailToBeDisplayedId}) => {
 
     const displayEmailPreviews = (emails) => {
         if (!emails || emails.length == 0) {
@@ -18,6 +18,8 @@ const EmailList = ({ emails }) => {
                     dateCreated={email.date_created}
                     read={email.read}
                     bodyPreview={email.body}
+                    setEmailToBeDisplayedId={setEmailToBeDisplayedId}
+                    emailToBeDisplayedId={emailToBeDisplayedId}
                 />
             ))} </>)
         }
