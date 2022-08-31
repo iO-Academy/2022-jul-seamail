@@ -9,7 +9,7 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, body
     }
 
     const selectedStyles = () => {
-        if (emailToBeDisplayed.id == id ) {
+        if (emailToBeDisplayed && emailToBeDisplayed.id == id ) {
             return " text-white bg-primary"
         } 
     }
