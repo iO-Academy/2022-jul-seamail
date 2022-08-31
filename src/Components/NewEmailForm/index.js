@@ -12,11 +12,9 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
             emailAdresses.forEach(emailAddress => {
                 if(!emailAddress.match(validEmail) || emailAddress == '' ) {
                     setEmailAddressValid(false) 
-                   
                 } else {
                     setEmailAddressValid(true)
                 }
-                console.log(emailAddressValid)
             })
         }
     
@@ -44,8 +42,6 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
             </div>
         </form>
     )
-    
-    
 }
 
 export default NewEmailForm
