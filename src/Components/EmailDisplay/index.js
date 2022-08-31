@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import CloseButton from '../CloseButton';
 import './styles.scss';
 
-const EmailDisplay = ({ emails, emailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth }) => {
-
-    const [emailToBeDisplayed, setEmailToBeDisplayed] = useState(null)
+const EmailDisplay = ({ emails, emailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth, emailToBeDisplayed, setEmailToBeDisplayed }) => {
 
     const getEmailToBeDisplayed = () => {
         fetch ("http://localhost:8080/emails")
