@@ -9,7 +9,8 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
     const [emails, setEmails] = useState('')
     const [subject, setSubject] = useState('')
     const [emailBody, setEmailBody] = useState('')
-    const [emailSentSuccess, setEmailSentSuccess] = useState('')
+    const [emailSentSuccess, setEmailSentSuccess] = useState(null)
+    const [formFieldsFilled, setFormFieldsFilled] = useState(null)
     const validEmail =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     const validateEmail = (e) => {
@@ -80,6 +81,9 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
             emailBodyValid  &&
             emailSubjectValid) {
                 sendEmails()
+                setFormFieldsFilled(true)
+            } else {
+                setFormFieldsFilled(false)
             }
     }
 
@@ -103,6 +107,7 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
                 <input type='submit' className="btn btn-success" id="btn-success" value="Send" />
             </div>
                 <p className='text-success text-end'>{emailSentSuccess === true ? 'Email Sent' : ''}</p>
+                <p className='text-danger text-end'>{formFieldsFilled === false ? 'All fields must be filled' : ''}</p>
         </form>
     )
 }
