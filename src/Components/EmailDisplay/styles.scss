@@ -6,3 +6,12 @@
 .emailBody {
     line-height: 20px;
 }
+
+@media screen and (max-width: 576px) {
+    .emailDisplayContainer {
+        position: absolute;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+    }
+}

@@ -1,4 +1,4 @@
-const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview, emailToBeDisplayedId , setEmailToBeDisplayedId }) => {
+const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview, emailToBeDisplayedId , setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible }) => {
 
     const applyStyles = () => {
         if (read == 1) {
@@ -11,7 +11,8 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, body
     const handleClick = (e) => {
         e.stopPropagation()
         setEmailToBeDisplayedId (e.currentTarget.dataset.id)
-        // console.log(emailToBeDisplayedId)
+        setEmailDisplayVisible(!emailDisplayVisible)
+        console.log(emailDisplayVisible)
     }
 
     return (
