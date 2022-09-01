@@ -1,26 +1,60 @@
+import { useEffect } from 'react';
+import CloseButton from '../CloseButton';
+import EmailDisplayNone from '../EmailDisplayNone';
 import './styles.scss';
 
-const EmailDisplay = () => {
+const EmailDisplay = ({ emailToBeDisplayedId, emailDisplayVisible, setEmailToBeDisplayedId, setEmailDisplayVisible, emailToBeDisplayed, setEmailToBeDisplayed }) => {
+
+    const getEmailToBeDisplayed = () => {
+        fetch (`${process.env.REACT_APP_API_URL}/emails`)
+        .then(data => data.json())
+        .then((responses) => {
+            responses.data.map((response) => {
+                if(response.id === emailToBeDisplayedId) {
+                    setEmailToBeDisplayed(response)
+                }
+            })
+        }
+    )
+}
+
+    useEffect(() => {
+        getEmailToBeDisplayed()
+    }, [emailToBeDisplayedId])
+    
     return (
         <div className="container">
             <div className="row">
-                <div className="col-9 col-lg-10">
-                    <p className="fs-5 fw-bold mt-2 mb-0">Maria Smith</p>
-                    <p className="fs-6 fw-bold mb-1">maria.smith@fakecompany.com</p>
-                    <p className="fs-4 fw-bold">Hello world</p>
+                <div>
+                    <div className="m-0 text-end px-3">
+                        <CloseButton 
+                            emailDisplayVisible={emailDisplayVisible} 
+                            setEmailDisplayVisible={setEmailDisplayVisible}
+                            setEmailToBeDisplayedId={setEmailToBeDisplayedId} 
+                        />
+                    </div>
                 </div>
-                <div className="col-3 col-lg-2 d-flex">
-                    <p className="fs-6 fw-bold mt-2 align-self-center">23/07/2022</p>
-                </div>
-                <div className="emailBody col-12 border-bottom lh-lg">
-                    <p className="fs-6">Hello world,</p>
-                    <p className="fs-6">This is my first email.</p>
-                    <p className="fs-6">I am looking forward to speaking with you.</p>
-                    <p className="fs-6">Could you please click this link and schedule a time and date for our call?</p>
-                    <p className="fs-6">If you have any questions about the call, just reply to this email. I will get back to you ASAP.</p>
-                    <p className="fs-6">Thank you,</p>
-                    <p className="fs-6">Maria</p>
-                </div>
+                {emailToBeDisplayedId === null &&
+                    <EmailDisplayNone />
+                }
+                {emailToBeDisplayedId &&
+                <>
+                    <div className="d-flex col-12 col-lg-10 justify-content-between">
+                        <p className="fs-5 fw-bold mt-0 mb-0">{emailToBeDisplayed ? emailToBeDisplayed.name : ""}</p>
+                        <p className="fs-6 fw-bold mt-0 align-self-center">{emailToBeDisplayed ? emailToBeDisplayed.date_created.slice(0, 10).replace(/-/g, "/") : ""}</p>
+                    </div>
+                    <div>
+                        <p className="fs-6 fw-bold mb-1">{emailToBeDisplayed ? emailToBeDisplayed.email : ""}</p>    
+                    </div> 
+                    <div>   
+                        <p className="fs-4 fw-bold">{emailToBeDisplayed ? emailToBeDisplayed.subject : ""}</p>
+                    </div>
+                    <div className="emailBody col-12 border-bottom lh-lg">
+                        <p className="fs-6">{emailToBeDisplayed ? emailToBeDisplayed.body : ""}</p>
+                    </div>
+                </>
+                }
+
             </div>
         </div>
     )
