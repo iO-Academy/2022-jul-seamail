@@ -24,4 +24,5 @@ const EmailNavLinks = ({ emails }) => {
         </div>
     )
 }
+
 export default EmailNavLinks

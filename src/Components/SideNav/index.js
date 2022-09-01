@@ -1,16 +1,14 @@
 import EmailNavLinks from '../EmailNavLinks';
 import './styles.scss';
 
-const SideNav = ({ emails, emailToBeDisplayed }) => {
-
+const SideNav = ({ emails }) => {
     return (
             <>
                 <div className="">
-                    <EmailNavLinks emails={emails} emailToBeDisplayed={emailToBeDisplayed} />
+                    <EmailNavLinks emails={emails} />
                 </div>
             </>
             )
 }
-
 
 export default SideNav
