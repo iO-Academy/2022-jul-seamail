@@ -15,7 +15,7 @@ const SideNav = ({
 
     return (
             <>
-                <div className="">
+                <div>
                     <EmailNavLinks emails={emails}
                     newEmailVisible={newEmailVisible}
                     setNewEmailVisible ={setNewEmailVisible}
