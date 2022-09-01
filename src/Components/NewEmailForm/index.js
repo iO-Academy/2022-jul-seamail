@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './style.scss'
 
-const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
+const NewEmailForm = ({setNewEmailVisible, newEmailVisible}) => {
 
     const [emailAddressValid, setEmailAddressValid] = useState(null)
     const [emailSubjectValid, setEmailSubjectValid] = useState(null)
@@ -87,7 +87,7 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
 
     const handleCancel = (e) => {
         e.preventDefault()
-        
+        setNewEmailVisible(false)
     }
 
     return (
