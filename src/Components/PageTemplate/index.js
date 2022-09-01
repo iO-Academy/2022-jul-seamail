@@ -21,7 +21,7 @@ const PageTemplate = (props) => {
     }, [screenWidth])
 
     const getEmails = () => {
-            fetch ("http://localhost:8080/emails")
+            fetch (`${process.env.REACT_APP_API_URL}/emails`)
             .then(data => data.json())
             .then((response) => {
                 setEmails (response.data)
@@ -35,6 +35,7 @@ const PageTemplate = (props) => {
 
     return (
         <>
+        <button onClick={() => console.log(process.env.REACT_APP_API_URL)}>clICK</button>
         <section className="row gx-0">
             <TopNav 
                 setSideNavVisible={setSideNavVisible}
