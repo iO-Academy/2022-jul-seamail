@@ -16,7 +16,7 @@ const EmailList = ({
     userName
 }) => {
 
-    const displayEmailPreviews = (emails, sentEmails, sentNavActive) => {
+    const displayEmailPreviews = (emails) => {
             if (!emails || emails.length === 0) {
                 return <NoEmails />
             } else if (emails) {

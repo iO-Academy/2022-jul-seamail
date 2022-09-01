@@ -135,7 +135,7 @@ const NewEmailForm = ({
                 <input disabled={emailSentSuccess ? true : false} type='submit' className="btn btn-success" id="btn-success" value="Send" />
             </div>
                 <p className="text-danger text-end">{errorMessage ? 'Server unavailable' : ''}</p>
-                <p className={emailSentSuccess ? 'text-success text-end' : 'text-danger text-end'}>{emailSentSuccess === true ? closeEmail() : emailSentSuccess === false ? 'Failed to send, all fields must be filled' : ''}</p>
+                <p className={emailSentSuccess ? 'text-success text-end' : 'text-danger text-end'}>{emailSentSuccess === true ? closeEmail() : emailSentSuccess === false && !errorMessage ? 'Failed to send, all fields must be filled' : ''}</p>
         </form>
     )
 }
