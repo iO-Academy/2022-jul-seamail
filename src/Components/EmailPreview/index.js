@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const EmailPreview = ({ id, name, subject, dateCreated, read, bodyPreview, emailToBeDisplayed, setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth }) => {
+const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPreview, emailToBeDisplayed, setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth }) => {
     const [emailRead, setEmailRead] = useState(read)
 
     const selectedStyles = () => {
@@ -8,6 +8,10 @@ const EmailPreview = ({ id, name, subject, dateCreated, read, bodyPreview, email
             return " text-white bg-primary"
         } 
     }
+
+    useEffect(() => {
+        getEmails()
+    }, [emailRead])
 
     const updateReadValue = (e) => {
             fetch(`${process.env.REACT_APP_API_URL}/emails/${id}`, {
