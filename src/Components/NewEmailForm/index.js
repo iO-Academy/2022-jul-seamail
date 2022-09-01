@@ -1,7 +1,15 @@
 import { useState } from "react"
 import './style.scss'
 
-const NewEmailForm = ({setNewEmailVisible, newEmailVisible}) => {
+const NewEmailForm = ({
+    setNewEmailVisible, 
+    newEmailVisible,
+    setSentNavActive,
+    sentNavActive,
+    setInboxColorActive,
+    setNewEmailColorActive,
+    userName
+}) => {
 
     const [emailAddressValid, setEmailAddressValid] = useState(null)
     const [emailSubjectValid, setEmailSubjectValid] = useState(null)
@@ -15,10 +23,10 @@ const NewEmailForm = ({setNewEmailVisible, newEmailVisible}) => {
     const validateEmail = (e) => {
         let emailAddresses = e.target.value.trim().split(' ')
         emailAddresses.map((emailAddress) => {
-            if(!emailAddress.match(validEmail) || emailAddress == '' ) {
-                setEmailAddressValid(false)
+            if(!emailAddress.match(validEmail) || emailAddress === '' ) {
+                return setEmailAddressValid(false)
             } else {
-                setEmailAddressValid(true)
+                return setEmailAddressValid(true)
             }
         })
     }
@@ -55,7 +63,7 @@ const NewEmailForm = ({setNewEmailVisible, newEmailVisible}) => {
         let emailAddresses = emails.trim().split(' ')
         emailAddresses.forEach((email) => {
             let dataToSend = {
-                "name": "Bob Ross",
+                "name": userName,
                 "email": email,
                 "subject": subject,
                 "body": emailBody,
@@ -88,6 +96,9 @@ const NewEmailForm = ({setNewEmailVisible, newEmailVisible}) => {
     const handleCancel = (e) => {
         e.preventDefault()
         setNewEmailVisible(false)
+        setNewEmailColorActive(false)
+        setInboxColorActive(true)
+        setSentNavActive(false)
     }
 
     return (

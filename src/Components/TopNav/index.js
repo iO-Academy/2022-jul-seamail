@@ -2,7 +2,7 @@ import MobileMenuButton from "../MobileMenuButton"
 import UserProfile from "../UserProfile"
 import './style.scss';
 
-const TopNav = ({setSideNavVisible, sideNavVisible}) => {
+const TopNav = ({setSideNavVisible, sideNavVisible, userName, setUserName }) => {
     return (
         <div className="container-fluid">
             <nav className="navbarContainer row navbar bg-secondary text-white">
@@ -15,7 +15,8 @@ const TopNav = ({setSideNavVisible, sideNavVisible}) => {
                     <h1 className="topNavTitle mb-0">SeaMail</h1>
                 </div>
                 <div className="col-4 col-lg-6 d-flex justify-content-end">
-                    <UserProfile />
+                    <UserProfile
+                        userName={userName} />
                 </div>
             </nav>
         </div>

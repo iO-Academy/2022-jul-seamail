@@ -12,8 +12,9 @@ const PageTemplate = (props) => {
     const [newEmailVisible, setNewEmailVisible] = useState(false)
     const [sentEmails, setSentEmails] = useState(null)
     const [sentNavActive, setSentNavActive] = useState(false)
-    const [inboxColorActive, setInboxColorActive] = useState(false)
+    const [inboxColorActive, setInboxColorActive] = useState(true)
     const [newEmailColorActive, setNewEmailColorActive] = useState(false);
+    const [userName, setUserName] = useState('Charlie Cogglefish')
 
     useEffect(() => {
         if(screenWidth > 992) {
@@ -34,7 +35,7 @@ const PageTemplate = (props) => {
     }
 
     const getSentEmails = () => {
-         fetch ("http://localhost:8080/emails/sent")
+         fetch (`${process.env.REACT_APP_API_URL}/emails/sent`)
         .then(data => data.json())
         .then((response) => {
             setSentEmails (response.data)
@@ -52,7 +53,10 @@ const PageTemplate = (props) => {
         <section className="row gx-0">
             <TopNav 
                 setSideNavVisible={setSideNavVisible}
-                sideNavVisible={sideNavVisible}  />
+                sideNavVisible={sideNavVisible} 
+                setUserName={setUserName} 
+                userName={userName}
+                />
         </section>
         <section className="row gx-0">
             {sideNavVisible &&
@@ -75,12 +79,16 @@ const PageTemplate = (props) => {
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
                 <EmailList
+                userName={userName}
                 emails={sentNavActive ? sentEmails : emails} 
                 setNewEmailVisible={setNewEmailVisible}
                 newEmailVisible={newEmailVisible}
                 setSentEmails={setSentEmails} 
                 setSentNavActive={setSentNavActive} 
                 sentNavActive={sentNavActive}
+                setInboxColorActive={setInboxColorActive}
+                newEmailColorActive={newEmailColorActive}
+                setNewEmailColorActive={setNewEmailColorActive}
                 />
             </div>
             <div className="d-none d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">

@@ -19,7 +19,8 @@ const SideNav = ({
     return (
             <>
                 <div>
-                    <EmailNavLinks emails={emails}
+                    <EmailNavLinks 
+                    emails={emails}
                     newEmailVisible={newEmailVisible}
                     setNewEmailVisible ={setNewEmailVisible}
                     setSentNavActive={setSentNavActive} 

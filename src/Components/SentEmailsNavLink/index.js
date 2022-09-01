@@ -1,8 +1,9 @@
-import { useState } from "react"
-
 const SentEmailsNavLink = ({
     setSentNavActive,
     sentNavActive,
+    setInboxColorActive,
+    setNewEmailColorActive,
+    setNewEmailVisible,
     screenWidth,
     sideNavVisible, 
     setSideNavVisible
@@ -14,14 +15,17 @@ const SentEmailsNavLink = ({
             setSentNavActive(true)
         }
         setSentNavActive(true)
+        setInboxColorActive(false)
+        setNewEmailColorActive(false)
+        setNewEmailVisible(false)
     }
 
-    let baseStyles = "row ps-2"
+    let baseStyles = "row py-3 ps-2 side-nav-links"
     
     return (
         <>
-        <div className={sentNavActive ? (baseStyles + ' link-active ') : baseStyles}>
-            <a onClick={handleClick} className="fw-bold text-decoration-none">Sent</a>
+        <div className={sentNavActive ? (baseStyles + ' link-active') : baseStyles}>
+            <p onClick={handleClick} className="fw-bold ps-3 nav-link text-decoration-none">Sent</p>
         </div>
         </>
     )
