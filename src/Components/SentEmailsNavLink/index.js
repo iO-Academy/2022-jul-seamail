@@ -2,10 +2,17 @@ import { useState } from "react"
 
 const SentEmailsNavLink = ({
     setSentNavActive,
-    sentNavActive
+    sentNavActive,
+    screenWidth,
+    sideNavVisible, 
+    setSideNavVisible
 }) => {
 
     const handleClick = () => {
+        if(screenWidth < 992) {
+            setSideNavVisible(!sideNavVisible)
+            setSentNavActive(true)
+        }
         setSentNavActive(true)
     }
 
