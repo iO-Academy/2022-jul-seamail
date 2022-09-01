@@ -1,10 +1,10 @@
 import { useState } from "react"
 
-const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPreview, emailToBeDisplayed, setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth }) => {
+const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPreview, emailToBeDisplayed, setEmailToBeDisplayedId, setEmailDisplayVisible }) => {
     const [emailRead, setEmailRead] = useState(read)
 
     const selectedStyles = () => {
-        if (emailToBeDisplayed && emailToBeDisplayed.id == id ) {
+        if (emailToBeDisplayed && emailToBeDisplayed.id === id ) {
             return " text-white bg-primary"
         } 
     }
