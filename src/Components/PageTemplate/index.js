@@ -34,7 +34,6 @@ const PageTemplate = (props) => {
 
     return (
         <>
-        <button onClick={() => console.log(process.env.REACT_APP_API_URL)}>clICK</button>
         <section className="row gx-0">
             <TopNav 
                 setSideNavVisible={setSideNavVisible}
