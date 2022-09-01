@@ -1,12 +1,19 @@
+import { useEffect, useState } from "react"
+
 const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview, emailToBeDisplayedId, emailToBeDisplayed, setEmailToBeDisplayed, setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth }) => {
+    const [readBackground, setReadBackground] = useState("read text-bg-light")
 
     const applyStyles = () => {
         if (read == 1) {
-            return "read text-bg-light"
+            setReadBackground ("read text-bg-light")
         } else if (read == 0) {
-            return "unRead text-bg-secondary "
+            setReadBackground ("unRead text-bg-secondary ")
         }
     }
+
+    useEffect(() => {
+        applyStyles()
+    },[read])
 
     const selectedStyles = () => {
         if (emailToBeDisplayed && emailToBeDisplayed.id == id ) {
@@ -15,9 +22,8 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, body
     }
 
     const updateReadValue = (e) => {
-        console.log(e.target.dataset)
         // if (e.currentTarget.dataset.id == setEmailToBeDisplayedId){
-            fetch(`${process.env.REACT_APP_API_URL}/emails/${e.target.dataset.id}`, {
+            fetch(`${process.env.REACT_APP_API_URL}/emails/${e.currentTarget.dataset.id}`, {
                 method: 'PUT',
             })
             .then(data => data.json())
@@ -32,10 +38,11 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, body
         setEmailToBeDisplayedId (e.currentTarget.dataset.id)
         screenWidth < 576 ? setEmailDisplayVisible(!emailDisplayVisible) : setEmailDisplayVisible(emailDisplayVisible)
         updateReadValue(e)
+        applyStyles()
     }
 
     return (
-        <div onClick={handleClick} data-id={id} className={"border p-3 " + applyStyles() + selectedStyles()}>
+        <div onClick={handleClick} data-id={id} className={"border p-3 " + readBackground + selectedStyles()}>
             <div className="row">
                 <h5 className="col-6 mb-2">{name}</h5>
                 <h6 className="col-6 text-end mb-2">{dateCreated.slice(0, 10).replace(/-/g, "/")}</h6>
