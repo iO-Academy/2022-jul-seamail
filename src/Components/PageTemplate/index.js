@@ -10,6 +10,8 @@ const PageTemplate = (props) => {
     const [sideNavVisible, setSideNavVisible] = useState(false)
     const [emailDisplayVisible, setEmailDisplayVisible] = useState(false)
     const screenWidth = useWindowWidth()
+    const [emailToBeDisplayedId, setEmailToBeDisplayedId] = useState("null")
+    const [emailToBeDisplayed, setEmailToBeDisplayed] = useState(null)
 
     useEffect(() => {
         if(screenWidth > 992) {
@@ -42,27 +44,44 @@ const PageTemplate = (props) => {
         getEmails()
     },[])
 
-    const [emailToBeDisplayedId, setEmailToBeDisplayedId] = useState("null")
-
     return (
         <>
         <section className="row gx-0">
             <TopNav 
                 setSideNavVisible={setSideNavVisible}
-                sideNavVisible={sideNavVisible}  />
+                sideNavVisible={sideNavVisible}  
+            />
         </section>
         <section className="row gx-0">
             {sideNavVisible &&
                 <div className="sideNavContainer col-6 col-sm-2 col-md-3 col-lg-1 p-0 gx-0">
-                    <SideNav emails={emails}/>
+                    <SideNav emails={emails} />
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
-                <EmailList emails={emails} emailToBeDisplayedId={emailToBeDisplayedId} setEmailToBeDisplayedId={setEmailToBeDisplayedId} emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible} screenWidth={screenWidth}/>
+                <EmailList 
+                    getEmails={getEmails} 
+                    emailToBeDisplayed={emailToBeDisplayed} 
+                    setEmailToBeDisplayed={setEmailToBeDisplayed} 
+                    emails={emails} 
+                    emailToBeDisplayedId={emailToBeDisplayedId} 
+                    setEmailToBeDisplayedId={setEmailToBeDisplayedId} 
+                    emailDisplayVisible={emailDisplayVisible} 
+                    setEmailDisplayVisible={setEmailDisplayVisible} 
+                    screenWidth={screenWidth}
+                />
             </div>
             {emailDisplayVisible &&
             <div className="emailDisplayContainer d-sm-block col-sm-6 col-6 col-md-8 col-lg-7 gx-0">
-                <EmailDisplay emails={emails} screenWidth={screenWidth} emailToBeDisplayedId={emailToBeDisplayedId} emailDisplayVisible={emailDisplayVisible} setEmailDisplayVisible={setEmailDisplayVisible}/>
+                <EmailDisplay 
+                    emailToBeDisplayed={emailToBeDisplayed} 
+                    setEmailToBeDisplayed={setEmailToBeDisplayed} 
+                    emails={emails} 
+                    screenWidth={screenWidth} 
+                    emailToBeDisplayedId={emailToBeDisplayedId} 
+                    emailDisplayVisible={emailDisplayVisible} 
+                    setEmailDisplayVisible={setEmailDisplayVisible}
+                />
             </div>
             }
         </section>
