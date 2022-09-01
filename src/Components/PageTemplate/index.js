@@ -11,7 +11,7 @@ const PageTemplate = (props) => {
     const [sideNavVisible, setSideNavVisible] = useState(false)
     const [emailDisplayVisible, setEmailDisplayVisible] = useState(false)
     const screenWidth = useWindowWidth()
-    const [emailToBeDisplayedId, setEmailToBeDisplayedId] = useState("null")
+    const [emailToBeDisplayedId, setEmailToBeDisplayedId] = useState(null)
     const [emailToBeDisplayed, setEmailToBeDisplayed] = useState(null)
 
     useEffect(() => {
@@ -82,13 +82,11 @@ const PageTemplate = (props) => {
                     emailToBeDisplayedId={emailToBeDisplayedId} 
                     emailDisplayVisible={emailDisplayVisible} 
                     setEmailDisplayVisible={setEmailDisplayVisible}
+                    setEmailToBeDisplayedId={setEmailToBeDisplayedId}
                 />
             </div>
             }
-            {!emailDisplayVisible && 
-            <div>
-                <EmailDisplayNone />
-            </div>}
+            
         </section>
         </>
     )

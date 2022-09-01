@@ -1,8 +1,13 @@
+import { useWindowWidth } from "@react-hook/window-size";
 
-const CloseButton = ({emailDisplayVisible, setEmailDisplayVisible}) => {
+const CloseButton = ({ setEmailDisplayVisible, setEmailToBeDisplayedId}) => {
+    const screenWidth = useWindowWidth()
 
     const handleClick = () => {
-        setEmailDisplayVisible(false)
+        setEmailToBeDisplayedId(null)
+        if(screenWidth < 576) {
+            setEmailDisplayVisible(false)
+        }
     } 
     
     return <button onClick={handleClick} type="button" className="btn-close pt-5 pb-0" aria-label="Close"></button>
