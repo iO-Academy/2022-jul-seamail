@@ -3,6 +3,7 @@ import NewEmailNavLink from "../NewEmailNavLink"
 import SentEmailsNavLink from "../SentEmailsNavLink"
 
 const EmailNavLinks = ({
+    getSentEmails,
     emails,
     setNewEmailVisible,
     newEmailVisible,
@@ -63,7 +64,8 @@ const EmailNavLinks = ({
                 <p className="fw-bold bg-warning rounded-1 py-0 px-1">{emails ? unRead : "0"}</p>
             </div>
         </div>
-        <SentEmailsNavLink 
+        <SentEmailsNavLink
+            getSentEmails={getSentEmails} 
             setSentNavActive={setSentNavActive} 
             sentNavActive={sentNavActive} 
             setInboxColorActive={setInboxColorActive}
