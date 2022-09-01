@@ -34,7 +34,7 @@ const PageTemplate = (props) => {
     }
 
     const getSentEmails = () => {
-         fetch ("http://localhost:8080/emails/sent")
+         fetch (`${process.env.REACT_APP_API_URL}/emails/sent`)
         .then(data => data.json())
         .then((response) => {
             setSentEmails (response.data)

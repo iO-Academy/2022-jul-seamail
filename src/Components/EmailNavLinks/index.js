@@ -29,8 +29,9 @@ const EmailNavLinks = ({
 
     const handleClick = () => {
         setSentNavActive(false)
-        setInboxColorActive(true);
-        console.log(inboxColorActive)
+        setInboxColorActive(true)
+        setNewEmailColorActive(false)
+        setNewEmailVisible(false)
     }
 
     let baseStyles = "row ps-2 pe-3 py-3"
@@ -53,7 +54,11 @@ const EmailNavLinks = ({
         </div>
         <SentEmailsNavLink 
             setSentNavActive={setSentNavActive} 
-            sentNavActive= {sentNavActive} />
+            sentNavActive={sentNavActive} 
+            setInboxColorActive={setInboxColorActive}
+            setNewEmailColorActive={setNewEmailColorActive}
+            setNewEmailVisible={setNewEmailVisible}
+        />
         </>
     )
 }

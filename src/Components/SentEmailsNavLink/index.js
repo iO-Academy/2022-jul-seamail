@@ -2,11 +2,17 @@ import { useState } from "react"
 
 const SentEmailsNavLink = ({
     setSentNavActive,
-    sentNavActive
+    sentNavActive,
+    setInboxColorActive,
+    setNewEmailColorActive,
+    setNewEmailVisible
 }) => {
 
     const handleClick = () => {
         setSentNavActive(true)
+        setInboxColorActive(false)
+        setNewEmailColorActive(false)
+        setNewEmailVisible(false)
     }
 
     let baseStyles = "row ps-2"
