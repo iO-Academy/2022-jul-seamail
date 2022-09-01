@@ -12,13 +12,13 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
     const validEmail =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
 
-    const validateEmail = () => {
-        let emailAdresses = emails.trim().split(' ')
-            emailAdresses.forEach(emailAddress => {
-                if(!emailAddress.match(validEmail) || emailAddress == '' ) {
-                    setEmailAddressValid(false) 
-                } else {
-                    setEmailAddressValid(true)
+    const validateEmail = (e) => {
+        let emailAddresses = e.target.value.split(' ')
+        emailAddresses.map((emailAddress) => {
+            if(!emailAddress.match(validEmail) || emailAddress == '' ) {
+                setEmailAddressValid(false)
+            } else {
+                setEmailAddressValid(true)
                 }
             })
         }
