@@ -60,7 +60,7 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
                 "subject": subject,
                 "body": emailBody,
             }
-            fetch('http://localhost:8080/emails', {
+            fetch(`${process.env.REACT_APP_API_URL}/emails`, {
                 method: 'POST',
                 body: JSON.stringify(dataToSend),
                 headers: {
