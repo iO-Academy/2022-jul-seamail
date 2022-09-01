@@ -59,7 +59,10 @@ const PageTemplate = (props) => {
                     setNewEmailVisible={setNewEmailVisible}
                     newEmailVisible={newEmailVisible}
                     setSentNavActive={setSentNavActive} 
-                    sentNavActive= {sentNavActive}/>
+                    sentNavActive= {sentNavActive}
+                    setSideNavVisible={setSideNavVisible}
+                    sideNavVisible={sideNavVisible}
+                    screenWidth={screenWidth} />
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">

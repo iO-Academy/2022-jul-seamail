@@ -1,7 +1,7 @@
 import EmailNavLinks from '../EmailNavLinks';
 import './styles.scss';
 
-const SideNav = ({ emails, newEmailVisible, setNewEmailVisible, setSentNavActive, sentNavActive }) => {
+const SideNav = ({ emails, newEmailVisible, setNewEmailVisible, setSentNavActive, sentNavActive, sideNavVisible, setSideNavVisible, screenWidth }) => {
 
     return (
             <>
@@ -10,7 +10,10 @@ const SideNav = ({ emails, newEmailVisible, setNewEmailVisible, setSentNavActive
                     newEmailVisible = {newEmailVisible}
                     setNewEmailVisible = {setNewEmailVisible}
                     setSentNavActive={setSentNavActive} 
-                    sentNavActive= {sentNavActive}/>
+                    sentNavActive= {sentNavActive}
+                    setSideNavVisible={setSideNavVisible}
+                    sideNavVisible={sideNavVisible}
+                    screenWidth={screenWidth} />
                 </div>
             </>
             )

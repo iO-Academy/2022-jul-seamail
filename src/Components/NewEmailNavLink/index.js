@@ -1,12 +1,18 @@
 import { useState } from "react"
 import './style.scss'
+import { useWindowWidth } from "@react-hook/window-size";
 
-const NewEmailNavLink = ({ setNewEmailVisible}) => {
+const NewEmailNavLink = ({ setNewEmailVisible, sideNavVisible, setSideNavVisible, screenWidth}) => {
     const [isActive, setIsActive] = useState(false);
 
     const handleClick = () => {
+        if(screenWidth < 992) {
+            setSideNavVisible(!sideNavVisible)
+            setIsActive(true);
+        }
         setNewEmailVisible(true)
         setIsActive(true);
+        
     }
 
     let baseStyles = 'row py-3 ps-2'
