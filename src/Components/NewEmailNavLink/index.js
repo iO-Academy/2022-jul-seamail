@@ -16,7 +16,7 @@ const NewEmailNavLink = ({
         setSentNavActive(false)
     }
 
-    let baseStyles = 'row py-3 ps-2'
+    let baseStyles = 'row py-3 ps-2 side-nav-links'
 
     return (
         <>

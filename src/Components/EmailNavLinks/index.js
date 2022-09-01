@@ -34,7 +34,7 @@ const EmailNavLinks = ({
         setNewEmailVisible(false)
     }
 
-    let baseStyles = "row ps-2 pe-3 py-3"
+    let baseStyles = "row ps-2 pe-3 py-3 side-nav-links"
 
     return (
         <>
