@@ -12,7 +12,7 @@ const PageTemplate = (props) => {
     const [newEmailVisible, setNewEmailVisible] = useState(false)
     const [sentEmails, setSentEmails] = useState(null)
     const [sentNavActive, setSentNavActive] = useState(false)
-    const [inboxColorActive, setInboxColorActive] = useState(false)
+    const [inboxColorActive, setInboxColorActive] = useState(true)
     const [newEmailColorActive, setNewEmailColorActive] = useState(false);
 
     useEffect(() => {
@@ -63,6 +63,9 @@ const PageTemplate = (props) => {
                     newEmailVisible={newEmailVisible}
                     setSentNavActive={setSentNavActive} 
                     sentNavActive={sentNavActive}
+                    setSideNavVisible={setSideNavVisible}
+                    sideNavVisible={sideNavVisible}
+                    screenWidth={screenWidth}
                     setInboxColorActive={setInboxColorActive}
                     inboxColorActive={inboxColorActive}
                     newEmailColorActive={newEmailColorActive}
@@ -78,6 +81,9 @@ const PageTemplate = (props) => {
                 setSentEmails={setSentEmails} 
                 setSentNavActive={setSentNavActive} 
                 sentNavActive={sentNavActive}
+                setInboxColorActive={setInboxColorActive}
+                newEmailColorActive={newEmailColorActive}
+                setNewEmailColorActive={setNewEmailColorActive}
                 />
             </div>
             <div className="d-none d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">

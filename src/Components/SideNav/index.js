@@ -10,9 +10,12 @@ const SideNav = ({
     inboxColorActive,
     setInboxColorActive,
     newEmailColorActive,
-    setNewEmailColorActive
+    setNewEmailColorActive, 
+    sideNavVisible, 
+    setSideNavVisible, 
+    screenWidth
  }) => {
-
+    
     return (
             <>
                 <div>
@@ -26,11 +29,13 @@ const SideNav = ({
                     inboxColorActive={inboxColorActive}
                     newEmailColorActive={newEmailColorActive}
                     setNewEmailColorActive={setNewEmailColorActive}
+                    setSideNavVisible={setSideNavVisible}
+                    sideNavVisible={sideNavVisible}
+                    screenWidth={screenWidth}
                     />
                 </div>
             </>
             )
 }
-
 
 export default SideNav

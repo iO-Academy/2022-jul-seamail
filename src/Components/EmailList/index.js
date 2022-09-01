@@ -11,14 +11,16 @@ const EmailList = ({
     sentEmails, 
     setSentEmails, 
     setSentNavActive, 
-    sentNavActive
+    sentNavActive,
+    setInboxColorActive,
+    setNewEmailColorActive
 }) => {
 
     const displayEmailPreviews = (emails, sentEmails, sentNavActive) => {
             if (!emails || emails.length === 0) {
                 return <NoEmails />
-             } else if (emails) {
-                 return (
+            } else if (emails) {
+                return (
                     <>
                         {emails.map((email) => (
                             <EmailPreview
@@ -33,8 +35,8 @@ const EmailList = ({
                             />
                         ))} 
                     </>
-                 )
-             }
+                )
+            }
         }
 
     return (
@@ -44,7 +46,11 @@ const EmailList = ({
         <div className="position-absolute col-lg-6 col-12 vh-100">
             <NewEmailForm 
                 setNewEmailVisible={setNewEmailVisible}
-                newEmailVisible={newEmailVisible} />
+                newEmailVisible={newEmailVisible}
+                setNewEmailColorActive={setNewEmailColorActive}
+                setInboxColorActive={setInboxColorActive}
+                setSentNavActive={setSentNavActive}   
+                />
         </div>
         }
         <div className="listContainer vh-100 overflow-auto">

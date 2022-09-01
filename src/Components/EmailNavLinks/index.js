@@ -8,6 +8,9 @@ const EmailNavLinks = ({
     newEmailVisible,
     setSentNavActive,
     sentNavActive,
+    sideNavVisible,
+    setSideNavVisible, 
+    screenWidth,
     setInboxColorActive,
     inboxColorActive,
     setNewEmailColorActive,
@@ -28,6 +31,10 @@ const EmailNavLinks = ({
     })
 
     const handleClick = () => {
+        if(screenWidth < 992) {
+            setSideNavVisible(!sideNavVisible)
+            setInboxColorActive(true);
+        }
         setSentNavActive(false)
         setInboxColorActive(true)
         setNewEmailColorActive(false)
@@ -45,6 +52,10 @@ const EmailNavLinks = ({
          newEmailColorActive={newEmailColorActive}
          setInboxColorActive={setInboxColorActive}
          setSentNavActive={setSentNavActive}
+         setSideNavVisible={setSideNavVisible}
+         sideNavVisible={sideNavVisible}
+         screenWidth={screenWidth} 
+
          />
         <div className={inboxColorActive ? (baseStyles + ' link-active ') : baseStyles}>
             <div className="col-2 d-flex justify-content-between">
@@ -58,7 +69,9 @@ const EmailNavLinks = ({
             setInboxColorActive={setInboxColorActive}
             setNewEmailColorActive={setNewEmailColorActive}
             setNewEmailVisible={setNewEmailVisible}
-        />
+            setSideNavVisible={setSideNavVisible}
+            sideNavVisible={sideNavVisible}
+            screenWidth={screenWidth}/>
         </>
     )
 }

@@ -6,10 +6,17 @@ const NewEmailNavLink = ({
     setNewEmailColorActive,
     newEmailColorActive,
     setInboxColorActive,
-    setSentNavActive
+    setSentNavActive,
+    sideNavVisible, 
+    setSideNavVisible, 
+    screenWidth
 }) => {
 
     const handleClick = () => {
+        if(screenWidth < 992) {
+            setSideNavVisible(!sideNavVisible)
+            setNewEmailColorActive(true);
+        }
         setNewEmailVisible(true)
         setNewEmailColorActive(true)
         setInboxColorActive(false)
