@@ -14,10 +14,27 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, body
         } 
     }
 
+    const updateReadValue = (e) => {
+        if (e.currentTarget.dataset.id == setEmailToBeDisplayedId){
+            let dataToSend = {
+                "read": "0",
+            }
+            fetch('http://localhost:8080/emails', {
+                method: 'PUT',
+                body: JSON.stringify(dataToSend),
+            })
+            .then(data => data.json())
+            .then((response) => {
+                console.log(response.data.sent)
+            })
+        }
+        }
+
     const handleClick = (e) => {
         e.stopPropagation()
         setEmailToBeDisplayedId (e.currentTarget.dataset.id)
         screenWidth < 576 ? setEmailDisplayVisible(!emailDisplayVisible) : setEmailDisplayVisible(emailDisplayVisible)
+        updateReadValue(e)
     }
 
     return (
