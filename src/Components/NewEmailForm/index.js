@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './style.scss'
 
-const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
+const NewEmailForm = ({setNewEmailVisible, newEmailVisible}) => {
 
     const [emailAddressValid, setEmailAddressValid] = useState(null)
     const [emailSubjectValid, setEmailSubjectValid] = useState(null)
@@ -60,7 +60,7 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
                 "subject": subject,
                 "body": emailBody,
             }
-            fetch('http://localhost:8080/emails', {
+            fetch(`${process.env.REACT_APP_API_URL}/emails`, {
                 method: 'POST',
                 body: JSON.stringify(dataToSend),
                 headers: {
@@ -85,6 +85,11 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
             }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault()
+        setNewEmailVisible(false)
+    }
+
     return (
 
         <form  onSubmit={handleSubmit} className="col bg-white border p-5">
@@ -102,6 +107,7 @@ const NewEmailForm = ({setSideNavVisible, sideNavVisible}) => {
                 <div className='text-danger'>{emailBodyValid === false ? 'Email body empty' : ''}</div>
             </div>
             <div className="d-flex form-group justify-content-end mb-2">
+                <button className="btn btn-secondary mx-2" onClick={handleCancel}>Cancel</button>
                 <input type='submit' className="btn btn-success" id="btn-success" value="Send" />
             </div>
                 <p className={emailSentSuccess ? 'text-success text-end' : 'text-danger text-end'}>{emailSentSuccess === true ? 'Email Sent' : emailSentSuccess === false ? 'Failed to send, all fields must be filled' : ''}</p>
