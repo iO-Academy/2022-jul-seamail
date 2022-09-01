@@ -4,6 +4,7 @@ import EmailList from "../EmailList";
 import SideNav from "../SideNav";
 import TopNav from "../TopNav";
 import { useWindowWidth } from "@react-hook/window-size";
+import EmailDisplayNone from "../EmailDisplayNone";
 
 const PageTemplate = (props) => {
     const [emails, setEmails] = useState(null)
@@ -84,6 +85,10 @@ const PageTemplate = (props) => {
                 />
             </div>
             }
+            {!emailDisplayVisible && 
+            <div>
+                <EmailDisplayNone />
+            </div>}
         </section>
         </>
     )
