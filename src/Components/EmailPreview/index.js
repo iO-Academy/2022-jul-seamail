@@ -3,9 +3,9 @@ import './style.scss'
 const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview }) => {
 
     const applyStyles = () => {
-        if (read === 1) {
+        if (read === "1") {
             return "read text-bg-light"
-        } else if (read === 0) {
+        } else if (read === "0") {
             return "unRead text-bg-secondary "
         }
     }

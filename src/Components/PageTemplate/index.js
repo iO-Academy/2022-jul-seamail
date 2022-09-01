@@ -62,6 +62,7 @@ const PageTemplate = (props) => {
             {sideNavVisible &&
                 <div className="sideNavContainer col-6 col-sm-2 col-md-3 col-lg-1 p-0 gx-0">
                     <SideNav
+                    getSentEmails={getSentEmails}
                     emails={emails}
                     setNewEmailVisible={setNewEmailVisible}
                     newEmailVisible={newEmailVisible}

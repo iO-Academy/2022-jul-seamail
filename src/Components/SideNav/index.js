@@ -2,6 +2,7 @@ import EmailNavLinks from '../EmailNavLinks';
 import './styles.scss';
 
 const SideNav = ({
+    getSentEmails,
     emails,
     newEmailVisible,
     setNewEmailVisible,
@@ -20,6 +21,7 @@ const SideNav = ({
             <>
                 <div>
                     <EmailNavLinks 
+                    getSentEmails={getSentEmails}
                     emails={emails}
                     newEmailVisible={newEmailVisible}
                     setNewEmailVisible ={setNewEmailVisible}

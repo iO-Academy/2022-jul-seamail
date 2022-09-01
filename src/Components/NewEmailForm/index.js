@@ -18,6 +18,7 @@ const NewEmailForm = ({
     const [subject, setSubject] = useState('')
     const [emailBody, setEmailBody] = useState('')
     const [emailSentSuccess, setEmailSentSuccess] = useState(null)
+    const [errorMessage, setErrorMessage] = useState('')
     const validEmail =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     const validateEmail = (e) => {
@@ -79,6 +80,9 @@ const NewEmailForm = ({
             .then((response) => {
                 setEmailSentSuccess(response.data.sent)
             })
+            .catch((error) => {
+                setErrorMessage(true)
+            })
         })  
     }
     
@@ -101,6 +105,15 @@ const NewEmailForm = ({
         setSentNavActive(false)
     }
 
+    const closeEmail = () => {
+        if (emailSentSuccess === true) {
+            setTimeout(() => {
+                setNewEmailVisible(false)
+              }, 2000);
+              return 'email sent'
+        }
+    } 
+
     return (
 
         <form  onSubmit={handleSubmit} className="col bg-white border p-5">
@@ -119,9 +132,10 @@ const NewEmailForm = ({
             </div>
             <div className="d-flex form-group justify-content-end mb-2">
                 <button className="btn btn-secondary mx-2" onClick={handleCancel}>Cancel</button>
-                <input type='submit' className="btn btn-success" id="btn-success" value="Send" />
+                <input disabled={emailSentSuccess ? true : false} type='submit' className="btn btn-success" id="btn-success" value="Send" />
             </div>
-                <p className={emailSentSuccess ? 'text-success text-end' : 'text-danger text-end'}>{emailSentSuccess === true ? 'Email Sent' : emailSentSuccess === false ? 'Failed to send, all fields must be filled' : ''}</p>
+                <p className="text-danger text-end">{errorMessage ? 'Server unavailable' : ''}</p>
+                <p className={emailSentSuccess ? 'text-success text-end' : 'text-danger text-end'}>{emailSentSuccess === true ? closeEmail() : emailSentSuccess === false ? 'Failed to send, all fields must be filled' : ''}</p>
         </form>
     )
 }

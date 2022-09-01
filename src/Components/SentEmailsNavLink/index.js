@@ -1,4 +1,5 @@
 const SentEmailsNavLink = ({
+    getSentEmails,
     setSentNavActive,
     sentNavActive,
     setInboxColorActive,
@@ -10,6 +11,7 @@ const SentEmailsNavLink = ({
 }) => {
 
     const handleClick = () => {
+        getSentEmails()
         if(screenWidth < 992) {
             setSideNavVisible(!sideNavVisible)
             setSentNavActive(true)
