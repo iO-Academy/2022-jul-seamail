@@ -20,7 +20,7 @@ const EmailDisplay = ({ emailToBeDisplayedId, emailDisplayVisible, setEmailToBeD
 
     useEffect(() => {
         getEmailToBeDisplayed()
-    },[emailToBeDisplayedId])
+    }, [emailToBeDisplayedId])
     
     return (
         <div className="container">

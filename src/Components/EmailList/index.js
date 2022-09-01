@@ -5,7 +5,7 @@ import "./styles.scss"
 const EmailList = ({ getEmails, emails, emailToBeDisplayedId , setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth, emailToBeDisplayed, setEmailToBeDisplayed}) => {
 
     const displayEmailPreviews = (emails) => {
-        if (!emails || emails.length == 0) {
+        if (!emails || emails.length === 0) {
            return <NoEmails />
         } else if (emails) {
             return (<>{emails.map((email) => (
