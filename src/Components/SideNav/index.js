@@ -1,16 +1,27 @@
 import EmailNavLinks from '../EmailNavLinks';
 import './styles.scss';
 
-const SideNav = ({ emails, newEmailVisible, setNewEmailVisible, setSentNavActive, sentNavActive }) => {
+const SideNav = ({
+    emails,
+    newEmailVisible,
+    setNewEmailVisible,
+    setSentNavActive,
+    sentNavActive,
+    inboxColorActive,
+    setInboxColorActive
+ }) => {
 
     return (
             <>
                 <div className="">
                     <EmailNavLinks emails={emails}
-                    newEmailVisible = {newEmailVisible}
-                    setNewEmailVisible = {setNewEmailVisible}
+                    newEmailVisible={newEmailVisible}
+                    setNewEmailVisible ={setNewEmailVisible}
                     setSentNavActive={setSentNavActive} 
-                    sentNavActive= {sentNavActive}/>
+                    sentNavActive={sentNavActive}
+                    setInboxColorActive={setInboxColorActive}
+                    inboxColorActive={inboxColorActive}
+                    />
                 </div>
             </>
             )

@@ -13,9 +13,9 @@ const NewEmailNavLink = ({ setNewEmailVisible}) => {
 
     return (
         <>
-        <div className={isActive ? (baseStyles + ' link-active ') : baseStyles}>
-            <a onClick={handleClick} className="fw-bold text-decoration-none">New Email</a>
-        </div>
+            <div className={isActive ? (baseStyles + ' link-active ') : baseStyles}>
+                <a onClick={handleClick} className="fw-bold text-decoration-none">New Email</a>
+            </div>
         </>
     )
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import NewEmailNavLink from "../NewEmailNavLink"
 import SentEmailsNavLink from "../SentEmailsNavLink"
 
-const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible, setSentNavActive, sentNavActive }) => {
+const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible, setSentNavActive, sentNavActive, setInboxColorActive, inboxColorActive }) => {
 
     const [unRead, setUnRead] = useState(0)
 
@@ -17,6 +17,12 @@ const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible, setSentNav
         }
     })
 
+    const handleClick = () => {
+        setSentNavActive(false)
+        setInboxColorActive(true);
+        console.log(inboxColorActive)
+    }
+
     return (
         <>
         <NewEmailNavLink 
@@ -24,7 +30,7 @@ const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible, setSentNav
          newEmailVisible={newEmailVisible}/>
         <div className="row ps-2 pe-3 py-3">
             <div className="col-2 d-flex justify-content-between">
-                <a className="fw-bold text-decoration-none me-3">Inbox</a>
+                <a onClick={handleClick} className="fw-bold text-decoration-none me-3">Inbox</a>
                 <p className="fw-bold bg-warning rounded-1 py-0 px-1">{emails ? unRead : "0"}</p>
             </div>
         </div>
