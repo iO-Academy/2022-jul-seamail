@@ -1,11 +1,19 @@
 import { useState } from "react"
 import './style.scss'
 
-const NewEmailNavLink = ({ setNewEmailVisible, setNewEmailColorActive, newEmailColorActive }) => {
+const NewEmailNavLink = ({
+    setNewEmailVisible,
+    setNewEmailColorActive,
+    newEmailColorActive,
+    setInboxColorActive,
+    setSentNavActive
+}) => {
 
     const handleClick = () => {
         setNewEmailVisible(true)
-        setNewEmailColorActive(true);
+        setNewEmailColorActive(true)
+        setInboxColorActive(false)
+        setSentNavActive(false)
     }
 
     let baseStyles = 'row py-3 ps-2'

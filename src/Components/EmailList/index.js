@@ -11,7 +11,8 @@ const EmailList = ({
     sentEmails, 
     setSentEmails, 
     setSentNavActive, 
-    sentNavActive}) => {
+    sentNavActive
+}) => {
 
     const displayEmailPreviews = (emails, sentEmails, sentNavActive) => {
             if (!emails || emails.length === 0) {

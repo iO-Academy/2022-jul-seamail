@@ -42,6 +42,8 @@ const EmailNavLinks = ({
          newEmailVisible={newEmailVisible}
          setNewEmailColorActive={setNewEmailColorActive}
          newEmailColorActive={newEmailColorActive}
+         setInboxColorActive={setInboxColorActive}
+         setSentNavActive={setSentNavActive}
          />
         <div className={inboxColorActive ? (baseStyles + ' link-active ') : baseStyles}>
             <div className="col-2 d-flex justify-content-between">
