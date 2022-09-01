@@ -15,19 +15,16 @@ const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, body
     }
 
     const updateReadValue = (e) => {
-        if (e.currentTarget.dataset.id == setEmailToBeDisplayedId){
-            let dataToSend = {
-                "read": "0",
-            }
-            fetch('http://localhost:8080/emails', {
+        console.log(e.target.dataset)
+        // if (e.currentTarget.dataset.id == setEmailToBeDisplayedId){
+            fetch(`${process.env.REACT_APP_API_URL}/emails/${e.target.dataset.id}`, {
                 method: 'PUT',
-                body: JSON.stringify(dataToSend),
             })
             .then(data => data.json())
             .then((response) => {
-                console.log(response.data.sent)
+                console.log(response)
             })
-        }
+        // }
         }
 
     const handleClick = (e) => {
