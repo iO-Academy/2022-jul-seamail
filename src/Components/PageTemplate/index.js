@@ -13,6 +13,7 @@ const PageTemplate = (props) => {
     const [sentEmails, setSentEmails] = useState(null)
     const [sentNavActive, setSentNavActive] = useState(false)
     const [inboxColorActive, setInboxColorActive] = useState(false)
+    const [newEmailColorActive, setNewEmailColorActive] = useState(false);
 
     useEffect(() => {
         if(screenWidth > 992) {
@@ -64,6 +65,8 @@ const PageTemplate = (props) => {
                     sentNavActive={sentNavActive}
                     setInboxColorActive={setInboxColorActive}
                     inboxColorActive={inboxColorActive}
+                    newEmailColorActive={newEmailColorActive}
+                    setNewEmailColorActive={setNewEmailColorActive}
                     />
                 </div>
             }

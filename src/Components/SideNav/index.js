@@ -8,7 +8,9 @@ const SideNav = ({
     setSentNavActive,
     sentNavActive,
     inboxColorActive,
-    setInboxColorActive
+    setInboxColorActive,
+    newEmailColorActive,
+    setNewEmailColorActive
  }) => {
 
     return (
@@ -21,6 +23,8 @@ const SideNav = ({
                     sentNavActive={sentNavActive}
                     setInboxColorActive={setInboxColorActive}
                     inboxColorActive={inboxColorActive}
+                    newEmailColorActive={newEmailColorActive}
+                    setNewEmailColorActive={setNewEmailColorActive}
                     />
                 </div>
             </>
