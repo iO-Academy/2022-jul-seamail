@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import NewEmailNavLink from "../NewEmailNavLink"
 import SentEmailsNavLink from "../SentEmailsNavLink"
 
-const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible }) => {
+const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible, setSentNavActive, sentNavActive }) => {
 
     const [unRead, setUnRead] = useState(0)
 
@@ -28,7 +28,9 @@ const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible }) => {
                 <p className="fw-bold bg-warning rounded-1 py-0 px-1">{emails ? unRead : "0"}</p>
             </div>
         </div>
-        <SentEmailsNavLink />
+        <SentEmailsNavLink 
+            setSentNavActive={setSentNavActive} 
+            sentNavActive= {sentNavActive} />
         </>
     )
 }

@@ -10,6 +10,8 @@ const PageTemplate = (props) => {
     const [sideNavVisible, setSideNavVisible] = useState(false)
     const screenWidth = useWindowWidth()
     const [newEmailVisible, setNewEmailVisible] = useState(false)
+    const [sentEmails, setSentEmails] = useState(null)
+    const [sentNavActive, setSentNavActive] = useState(false)
 
     useEffect(() => {
         if(screenWidth > 992) {
@@ -29,10 +31,20 @@ const PageTemplate = (props) => {
         )
     }
 
+    const getSentEmails = () => {
+         fetch ("http://localhost:8080/emails/sent")
+        .then(data => data.json())
+        .then((response) => {
+            setSentEmails (response.data)
+        }
+    )
+}
+
     useEffect(() => {
         getEmails()
+        getSentEmails()
     },[])
-
+    
     return (
         <>
         <section className="row gx-0">
@@ -45,13 +57,19 @@ const PageTemplate = (props) => {
                 <div className="sideNavContainer col-6 col-sm-2 col-md-3 col-lg-1 p-0 gx-0">
                     <SideNav emails={emails}
                     setNewEmailVisible={setNewEmailVisible}
-                    newEmailVisible={newEmailVisible}/>
+                    newEmailVisible={newEmailVisible}
+                    setSentNavActive={setSentNavActive} 
+                    sentNavActive= {sentNavActive}/>
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
                 <EmailList emails={emails} 
                 setNewEmailVisible={setNewEmailVisible}
-                newEmailVisible={newEmailVisible}   />
+                newEmailVisible={newEmailVisible}
+                setSentEmails={setSentEmails} 
+                sentEmails= {sentEmails}
+                setSentNavActive={setSentNavActive} 
+                sentNavActive= {sentNavActive} />
             </div>
             <div className="d-none d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">
                 <EmailDisplay />

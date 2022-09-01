@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-const NewEmailNavLink = ({newEmailVisible, setNewEmailVisible}) => {
+const NewEmailNavLink = ({ setNewEmailVisible}) => {
     const [isActive, setIsActive] = useState(false);
 
     const handleClick = () => {
