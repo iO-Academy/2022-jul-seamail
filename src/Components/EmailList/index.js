@@ -2,7 +2,6 @@ import EmailPreview from "../EmailPreview"
 import NoEmails from "../NoEmails"
 import NewEmailForm from "../NewEmailForm"
 import "./styles.scss"
-import { useEffect, useState } from "react";
 
 const EmailList = ({ 
     emails, 
@@ -13,7 +12,8 @@ const EmailList = ({
     setSentNavActive, 
     sentNavActive,
     setInboxColorActive,
-    setNewEmailColorActive
+    setNewEmailColorActive,
+    userName
 }) => {
 
     const displayEmailPreviews = (emails, sentEmails, sentNavActive) => {
@@ -45,6 +45,7 @@ const EmailList = ({
          {newEmailVisible &&
         <div className="position-absolute col-lg-6 col-12 vh-100">
             <NewEmailForm 
+                userName={userName}
                 setNewEmailVisible={setNewEmailVisible}
                 newEmailVisible={newEmailVisible}
                 setNewEmailColorActive={setNewEmailColorActive}

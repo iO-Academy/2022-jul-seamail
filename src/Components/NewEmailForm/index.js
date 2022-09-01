@@ -7,7 +7,8 @@ const NewEmailForm = ({
     setSentNavActive,
     sentNavActive,
     setInboxColorActive,
-    setNewEmailColorActive
+    setNewEmailColorActive,
+    userName
 }) => {
 
     const [emailAddressValid, setEmailAddressValid] = useState(null)
@@ -22,10 +23,10 @@ const NewEmailForm = ({
     const validateEmail = (e) => {
         let emailAddresses = e.target.value.trim().split(' ')
         emailAddresses.map((emailAddress) => {
-            if(!emailAddress.match(validEmail) || emailAddress == '' ) {
-                setEmailAddressValid(false)
+            if(!emailAddress.match(validEmail) || emailAddress === '' ) {
+                return setEmailAddressValid(false)
             } else {
-                setEmailAddressValid(true)
+                return setEmailAddressValid(true)
             }
         })
     }
@@ -62,7 +63,7 @@ const NewEmailForm = ({
         let emailAddresses = emails.trim().split(' ')
         emailAddresses.forEach((email) => {
             let dataToSend = {
-                "name": "Bob Ross",
+                "name": userName,
                 "email": email,
                 "subject": subject,
                 "body": emailBody,

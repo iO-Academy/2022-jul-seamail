@@ -14,6 +14,7 @@ const PageTemplate = (props) => {
     const [sentNavActive, setSentNavActive] = useState(false)
     const [inboxColorActive, setInboxColorActive] = useState(true)
     const [newEmailColorActive, setNewEmailColorActive] = useState(false);
+    const [userName, setUserName] = useState('Charlie Cogglefish')
 
     useEffect(() => {
         if(screenWidth > 992) {
@@ -52,7 +53,10 @@ const PageTemplate = (props) => {
         <section className="row gx-0">
             <TopNav 
                 setSideNavVisible={setSideNavVisible}
-                sideNavVisible={sideNavVisible}  />
+                sideNavVisible={sideNavVisible} 
+                setUserName={setUserName} 
+                userName={userName}
+                />
         </section>
         <section className="row gx-0">
             {sideNavVisible &&
@@ -75,6 +79,7 @@ const PageTemplate = (props) => {
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
                 <EmailList
+                userName={userName}
                 emails={sentNavActive ? sentEmails : emails} 
                 setNewEmailVisible={setNewEmailVisible}
                 newEmailVisible={newEmailVisible}

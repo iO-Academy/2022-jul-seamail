@@ -20,7 +20,7 @@ const EmailNavLinks = ({
     const [unRead, setUnRead] = useState(0)
 
     const countUnreadEmails = (emails) => {
-        let unReadEmails = emails.filter((email) => email.read == "0")
+        let unReadEmails = emails.filter((email) => email.read === "0")
         setUnRead(unReadEmails.length) 
     }
 
@@ -59,7 +59,7 @@ const EmailNavLinks = ({
          />
         <div className={inboxColorActive ? (baseStyles + ' link-active ') : baseStyles}>
             <div className="col-2 d-flex justify-content-between">
-                <a onClick={handleClick} className="fw-bold text-decoration-none me-3">Inbox</a>
+                <p onClick={handleClick} className="fw-bold text-decoration-none ps-1 nav-link me-3">Inbox</p>
                 <p className="fw-bold bg-warning rounded-1 py-0 px-1">{emails ? unRead : "0"}</p>
             </div>
         </div>
