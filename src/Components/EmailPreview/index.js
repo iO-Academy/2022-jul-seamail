@@ -9,10 +9,6 @@ const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPre
         } 
     }
 
-    useEffect(() => {
-        getEmails()
-    }, [emailRead])
-
     const updateReadValue = (e) => {
             fetch(`${process.env.REACT_APP_API_URL}/emails/${id}`, {
                 method: 'PUT',
@@ -21,6 +17,7 @@ const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPre
             .then((response) => {
                 if(response.data.updated) {
                     setEmailRead('1')
+                    getEmails()
                 }
             })
         }
