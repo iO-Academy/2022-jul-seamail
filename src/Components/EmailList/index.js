@@ -4,26 +4,37 @@ import NewEmailForm from "../NewEmailForm"
 import "./styles.scss"
 import { useEffect, useState } from "react";
 
-const EmailList = ({ emails, newEmailVisible, setNewEmailVisible }) => {
+const EmailList = ({ 
+    emails, 
+    newEmailVisible, 
+    setNewEmailVisible, 
+    sentEmails, 
+    setSentEmails, 
+    setSentNavActive, 
+    sentNavActive}) => {
 
-    const displayEmailPreviews = (emails) => {
-        if (!emails || emails.length == 0) {
-           return <NoEmails />
-        } else if (emails) {
-            return (<>{emails.map((email) => (
-                <EmailPreview
-                    key={email.id}
-                    id={email.id}
-                    name={email.name}
-                    emailAddress={email.email}
-                    subject={email.subject}
-                    dateCreated={email.date_created}
-                    read={email.read}
-                    bodyPreview={email.body}
-                />
-            ))} </>)
+    const displayEmailPreviews = (emails, sentEmails, sentNavActive) => {
+            if (!emails || emails.length === 0) {
+                return <NoEmails />
+             } else if (emails) {
+                 return (
+                    <>
+                        {emails.map((email) => (
+                            <EmailPreview
+                                key={email.id}
+                                id={email.id}
+                                name={email.name}
+                                emailAddress={email.email}
+                                subject={email.subject}
+                                dateCreated={email.date_created}
+                                read={email.read}
+                                bodyPreview={email.body}
+                            />
+                        ))} 
+                    </>
+                 )
+             }
         }
-    }
 
     return (
         <>

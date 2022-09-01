@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import './style.scss'
+import { useWindowWidth } from "@react-hook/window-size";
 
-const NewEmailNavLink = ({newEmailVisible, setNewEmailVisible}) => {
-    const [isActive, setIsActive] = useState(false);
+const NewEmailNavLink = ({ setNewEmailVisible, sideNavVisible, setSideNavVisible, screenWidth, setNewEmailColorActive, newEmailColorActive }) => {
 
     const handleClick = () => {
+        if(screenWidth < 992) {
+            setSideNavVisible(!sideNavVisible)
+            setNewEmailColorActive(true);
+        }
         setNewEmailVisible(true)
-        setIsActive(true);
+        setNewEmailColorActive(true);
     }
+
+    let baseStyles = 'row py-3 ps-2'
 
     return (
         <>
-        <div className="row py-3 ps-2" 
-        style={{
-          backgroundColor: isActive ? '#007bfe' : '',
-        }}>
-            <a onClick={handleClick} className="fw-bold text-decoration-none">New Email</a>
-        </div>
+            <div className={newEmailColorActive ? (baseStyles + ' link-active ') : baseStyles}>
+                <a onClick={handleClick} className="fw-bold text-decoration-none">New Email</a>
+            </div>
         </>
     )
 }
