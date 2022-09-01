@@ -63,11 +63,10 @@ const PageTemplate = (props) => {
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
-                <EmailList emails={emails} 
+                <EmailList emails={sentNavActive ? sentEmails : emails} 
                 setNewEmailVisible={setNewEmailVisible}
                 newEmailVisible={newEmailVisible}
                 setSentEmails={setSentEmails} 
-                sentEmails= {sentEmails}
                 setSentNavActive={setSentNavActive} 
                 sentNavActive= {sentNavActive} />
             </div>

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './style.scss'
 
 const NewEmailNavLink = ({ setNewEmailVisible}) => {
     const [isActive, setIsActive] = useState(false);
@@ -8,12 +9,11 @@ const NewEmailNavLink = ({ setNewEmailVisible}) => {
         setIsActive(true);
     }
 
+    let baseStyles = 'row py-3 ps-2'
+
     return (
         <>
-        <div className="row py-3 ps-2" 
-        style={{
-          backgroundColor: isActive ? '#007bfe' : '',
-        }}>
+        <div className={isActive ? (baseStyles + ' link-active ') : baseStyles}>
             <a onClick={handleClick} className="fw-bold text-decoration-none">New Email</a>
         </div>
         </>
