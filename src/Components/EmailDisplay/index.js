@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import CloseButton from '../CloseButton';
 import './styles.scss';
 
-const EmailDisplay = ({ emails, emailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth, emailToBeDisplayed, setEmailToBeDisplayed }) => {
+const EmailDisplay = ({ emailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth, emailToBeDisplayed, setEmailToBeDisplayed }) => {
 
     const getEmailToBeDisplayed = () => {
         fetch (`${process.env.REACT_APP_API_URL}/emails`)
@@ -24,12 +24,13 @@ const EmailDisplay = ({ emails, emailToBeDisplayedId, emailDisplayVisible, setEm
     return (
         <div className="container">
             <div className="row">
-                <div className="d-flex text-center">
-                    <p className="d-flex ">
-                        {screenWidth < 576 ? <CloseButton 
-                        emailDisplayVisible={emailDisplayVisible} 
-                        setEmailDisplayVisible={setEmailDisplayVisible} /> : ""} 
-                    </p>
+                <div>
+                    <div className="m-0 text-end px-3">
+                        <CloseButton 
+                            emailDisplayVisible={emailDisplayVisible} 
+                            setEmailDisplayVisible={setEmailDisplayVisible} 
+                        />
+                    </div>
                 </div>
                 <div className="d-flex col-12 col-lg-10 justify-content-between">
                     <p className="fs-5 fw-bold mt-0 mb-0">{emailToBeDisplayed ? emailToBeDisplayed.name : ""}</p>

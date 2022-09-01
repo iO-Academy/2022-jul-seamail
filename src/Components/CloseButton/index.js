@@ -2,10 +2,10 @@
 const CloseButton = ({emailDisplayVisible, setEmailDisplayVisible}) => {
 
     const handleClick = () => {
-        setEmailDisplayVisible(!emailDisplayVisible)
+        setEmailDisplayVisible(false)
     } 
     
-    return <button onClick={handleClick} type="button" className="btn-close" aria-label="Close"></button>
+    return <button onClick={handleClick} type="button" className="btn-close pt-5 pb-0" aria-label="Close"></button>
 }
 
 export default CloseButton

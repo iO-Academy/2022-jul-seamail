@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPreview, emailToBeDisplayed, setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth }) => {
     const [emailRead, setEmailRead] = useState(read)
@@ -24,9 +24,7 @@ const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPre
 
     const handleClick = () => {
         setEmailToBeDisplayedId(id)
-        screenWidth < 576 
-            ? setEmailDisplayVisible(!emailDisplayVisible) 
-            : setEmailDisplayVisible(emailDisplayVisible)
+        setEmailDisplayVisible(true)
         updateReadValue()
     }
 
