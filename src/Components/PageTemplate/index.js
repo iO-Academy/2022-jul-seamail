@@ -9,6 +9,7 @@ const PageTemplate = (props) => {
     const [emails, setEmails] = useState(null)
     const [sideNavVisible, setSideNavVisible] = useState(false)
     const screenWidth = useWindowWidth()
+    const [newEmailVisible, setNewEmailVisible] = useState(false)
 
     useEffect(() => {
         if(screenWidth > 992) {
@@ -42,11 +43,15 @@ const PageTemplate = (props) => {
         <section className="row gx-0">
             {sideNavVisible &&
                 <div className="sideNavContainer col-6 col-sm-2 col-md-3 col-lg-1 p-0 gx-0">
-                    <SideNav emails={emails}/>
+                    <SideNav emails={emails}
+                    setNewEmailVisible={setNewEmailVisible}
+                    newEmailVisible={newEmailVisible}/>
                 </div>
             }
             <div className="col-12 col-sm-4 col-md-4 col-lg-4 gx-0">
-                <EmailList emails={emails} />
+                <EmailList emails={emails} 
+                setNewEmailVisible={setNewEmailVisible}
+                newEmailVisible={newEmailVisible}   />
             </div>
             <div className="d-none d-sm-block col-sm-6 col-6 col-md-5 col-lg-7 gx-0">
                 <EmailDisplay />

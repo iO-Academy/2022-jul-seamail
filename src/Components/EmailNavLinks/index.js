@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import NewEmailNavLink from "../NewEmailNavLink"
 
-const EmailNavLinks = ({ emails }) => {
+const EmailNavLinks = ({ emails, setNewEmailVisible, newEmailVisible }) => {
 
     const [unRead, setUnRead] = useState(0)
 
@@ -16,12 +17,17 @@ const EmailNavLinks = ({ emails }) => {
     })
 
     return (
-        <div className="row ps-3 pe-5 py-3">
-            <div className="col-1 d-flex justify-content-between">
+        <>
+        <NewEmailNavLink 
+         setNewEmailVisible={setNewEmailVisible}
+         newEmailVisible={newEmailVisible}/>
+        <div className="row ps-2 pe-3 py-3">
+            <div className="col-2 d-flex justify-content-between">
                 <a className="fw-bold text-decoration-none me-3">Inbox</a>
                 <p className="fw-bold bg-warning rounded-1 py-0 px-1">{emails ? unRead : "0"}</p>
             </div>
         </div>
+        </>
     )
 }
 export default EmailNavLinks
