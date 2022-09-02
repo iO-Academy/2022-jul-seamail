@@ -3,42 +3,57 @@ import NoEmails from "../NoEmails"
 import NewEmailForm from "../NewEmailForm"
 import "./styles.scss"
 
+
 const EmailList = ({ 
-    emails, 
-    newEmailVisible, 
-    setNewEmailVisible, 
-    sentEmails, 
-    setSentEmails, 
-    setSentNavActive, 
-    sentNavActive,
-    setInboxColorActive,
-    setNewEmailColorActive,
-    userName
-}) => {
+        getEmails, 
+        getSentEmails,
+        emails, 
+        emailToBeDisplayedId , 
+        setEmailToBeDisplayedId, 
+        emailDisplayVisible, 
+        setEmailDisplayVisible, 
+        screenWidth, 
+        emailToBeDisplayed, 
+        setEmailToBeDisplayed, 
+        newEmailVisible, 
+        setNewEmailVisible, 
+        sentEmails, 
+        setSentEmails, 
+        setSentNavActive, 
+        sentNavActive,
+        setInboxColorActive,
+        setNewEmailColorActive,
+        userName
+    }) => {
 
     const displayEmailPreviews = (emails) => {
-            if (!emails || emails.length === 0) {
-                return <NoEmails />
-            } else if (emails) {
-                return (
-                    <>
-                        {emails.map((email) => (
-                            <EmailPreview
-                                key={email.id}
-                                id={email.id}
-                                name={email.name}
-                                emailAddress={email.email}
-                                subject={email.subject}
-                                dateCreated={email.date_created}
-                                read={email.read}
-                                bodyPreview={email.body}
-                            />
-                        ))} 
-                    </>
-                )
-            }
+        if (!emails || emails.length === 0) {
+           return <NoEmails />
+        } else if (emails) {
+            return (<>{emails.map((email) => (
+                <EmailPreview
+                    key={email.id}
+                    getEmails={getEmails}
+                    getSentEmails={getSentEmails}
+                    id={email.id}
+                    name={email.name}
+                    emailAddress={email.email}
+                    subject={email.subject}
+                    dateCreated={email.date_created}
+                    read={email.read}
+                    sentNavActive={sentNavActive}
+                    bodyPreview={email.body}
+                    setEmailToBeDisplayedId={setEmailToBeDisplayedId}
+                    emailToBeDisplayedId={emailToBeDisplayedId}
+                    emailDisplayVisible={emailDisplayVisible} 
+                    setEmailDisplayVisible={setEmailDisplayVisible}
+                    screenWidth={screenWidth}
+                    emailToBeDisplayed={emailToBeDisplayed}
+                    setEmailToBeDisplayed={setEmailToBeDisplayed}
+                />
+            ))} </>)
         }
-
+    }
     return (
         <>
 

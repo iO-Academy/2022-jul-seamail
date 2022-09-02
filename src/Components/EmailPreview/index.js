@@ -1,17 +1,58 @@
-import './style.scss'
+import { useState } from "react"
 
-const EmailPreview = ({ id, name, emailAddress, subject, dateCreated, read, bodyPreview }) => {
+const EmailPreview = ({ 
+    getEmails,
+    getSentEmails, 
+    id, 
+    name, 
+    subject, 
+    dateCreated, 
+    read, 
+    bodyPreview, 
+    emailToBeDisplayed,
+    sentNavActive, 
+    setEmailToBeDisplayedId, 
+    setEmailDisplayVisible 
+}) => {
+    const [emailRead, setEmailRead] = useState(read)
 
-    const applyStyles = () => {
-        if (read === "1") {
-            return "read text-bg-light"
-        } else if (read === "0") {
-            return "unRead text-bg-secondary "
+    const selectedStyles = () => {
+        if (emailToBeDisplayed && emailToBeDisplayed.id === id ) {
+            return " text-white bg-primary"
+        } 
+    }
+
+    const updateReadValue = () => {
+            fetch(`${process.env.REACT_APP_API_URL}/emails/${id}`, {
+                method: 'PUT',
+            })
+            .then(data => data.json())
+            .then((response) => {
+                if(response.data.updated) {
+                    if(!sentNavActive){
+                        setEmailRead('1')
+                        getEmails()
+                    } else {
+                        getSentEmails()
+                        
+                    }
+                }
+            })
         }
+
+    const handleClick = () => {
+        setEmailToBeDisplayedId(id)
+        setEmailDisplayVisible(true)
+        updateReadValue()
     }
 
     return (
-        <div className={"emailPreview border p-3 " + applyStyles()}>
+
+        <div 
+            onClick={handleClick} 
+            data-id={id} 
+            className={"border p-3 " + (emailRead === '1' ? "read text-bg-light" : "unRead text-bg-secondary ") + selectedStyles()}
+        >
             <div className="row">
                 <h5 className="col-6 mb-2">{name}</h5>
                 <h6 className="col-6 text-end mb-2">{dateCreated.slice(0, 10).replace(/-/g, "/")}</h6>

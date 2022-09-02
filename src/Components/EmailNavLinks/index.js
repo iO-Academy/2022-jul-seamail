@@ -47,15 +47,15 @@ const EmailNavLinks = ({
     return (
         <>
         <NewEmailNavLink 
-         setNewEmailVisible={setNewEmailVisible}
-         newEmailVisible={newEmailVisible}
-         setNewEmailColorActive={setNewEmailColorActive}
-         newEmailColorActive={newEmailColorActive}
-         setInboxColorActive={setInboxColorActive}
-         setSentNavActive={setSentNavActive}
-         setSideNavVisible={setSideNavVisible}
-         sideNavVisible={sideNavVisible}
-         screenWidth={screenWidth} 
+            setNewEmailVisible={setNewEmailVisible}
+            newEmailVisible={newEmailVisible}
+            setNewEmailColorActive={setNewEmailColorActive}
+            newEmailColorActive={newEmailColorActive}
+            setInboxColorActive={setInboxColorActive}
+            setSentNavActive={setSentNavActive}
+            setSideNavVisible={setSideNavVisible}
+            sideNavVisible={sideNavVisible}
+            screenWidth={screenWidth} 
 
          />
         <div className={inboxColorActive ? (baseStyles + ' link-active ') : baseStyles}>
@@ -77,4 +77,5 @@ const EmailNavLinks = ({
         </>
     )
 }
+
 export default EmailNavLinks
