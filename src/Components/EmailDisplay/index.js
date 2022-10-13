@@ -3,21 +3,22 @@ import CloseButton from '../CloseButton';
 import EmailDisplayNone from '../EmailDisplayNone';
 import './styles.scss';
 
-const EmailDisplay = ({ emailToBeDisplayedId, emailDisplayVisible, setEmailToBeDisplayedId, setEmailDisplayVisible, emailToBeDisplayed, setEmailToBeDisplayed }) => {
+const EmailDisplay = ({ 
+    emailToBeDisplayedId, 
+    emailDisplayVisible, 
+    setEmailToBeDisplayedId, 
+    setEmailDisplayVisible, 
+    emailToBeDisplayed, 
+    setEmailToBeDisplayed }) => {
 
-    const getEmailToBeDisplayed = () => {
-        fetch (`${process.env.REACT_APP_API_URL}/emails`)
+    const getEmailToBeDisplayed = async () => {
+        await fetch (`${process.env.REACT_APP_API_URL}/emails/${emailToBeDisplayedId}`)
         .then(data => data.json())
-        .then((responses) => {
-            responses.data.map((response) => {
-                if(response.id === emailToBeDisplayedId) {
-                    setEmailToBeDisplayed(response)
-                }
-            })
-        }
-    )
-}
-
+        .then((response) => {
+            setEmailToBeDisplayed(response.data.email)
+        })
+    }
+    
     useEffect(() => {
         getEmailToBeDisplayed()
     }, [emailToBeDisplayedId])

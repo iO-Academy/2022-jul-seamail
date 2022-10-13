@@ -1,8 +1,28 @@
 import EmailPreview from "../EmailPreview"
 import NoEmails from "../NoEmails"
+import NewEmailForm from "../NewEmailForm"
 import "./styles.scss"
 
-const EmailList = ({ getEmails, emails, emailToBeDisplayedId , setEmailToBeDisplayedId, emailDisplayVisible, setEmailDisplayVisible, screenWidth, emailToBeDisplayed, setEmailToBeDisplayed}) => {
+
+const EmailList = ({ 
+        getEmails, 
+        getSentEmails,
+        emails, 
+        emailToBeDisplayedId , 
+        setEmailToBeDisplayedId, 
+        emailDisplayVisible, 
+        setEmailDisplayVisible, 
+        screenWidth, 
+        emailToBeDisplayed, 
+        setEmailToBeDisplayed, 
+        newEmailVisible, 
+        setNewEmailVisible, 
+        setSentNavActive, 
+        sentNavActive,
+        setInboxColorActive,
+        setNewEmailColorActive,
+        userName
+    }) => {
 
     const displayEmailPreviews = (emails) => {
         if (!emails || emails.length === 0) {
@@ -12,12 +32,14 @@ const EmailList = ({ getEmails, emails, emailToBeDisplayedId , setEmailToBeDispl
                 <EmailPreview
                     key={email.id}
                     getEmails={getEmails}
+                    getSentEmails={getSentEmails}
                     id={email.id}
                     name={email.name}
                     emailAddress={email.email}
                     subject={email.subject}
                     dateCreated={email.date_created}
                     read={email.read}
+                    sentNavActive={sentNavActive}
                     bodyPreview={email.body}
                     setEmailToBeDisplayedId={setEmailToBeDisplayedId}
                     emailToBeDisplayedId={emailToBeDisplayedId}
@@ -30,11 +52,25 @@ const EmailList = ({ getEmails, emails, emailToBeDisplayedId , setEmailToBeDispl
             ))} </>)
         }
     }
-
     return (
+        <>
+
+         {newEmailVisible &&
+        <div className="position-absolute col-lg-6 col-12 vh-100">
+            <NewEmailForm 
+                userName={userName}
+                setNewEmailVisible={setNewEmailVisible}
+                newEmailVisible={newEmailVisible}
+                setNewEmailColorActive={setNewEmailColorActive}
+                setInboxColorActive={setInboxColorActive}
+                setSentNavActive={setSentNavActive}   
+                />
+        </div>
+        }
         <div className="listContainer vh-100 overflow-auto">
             {displayEmailPreviews(emails)}
         </div>
+        </>
     )
 }
 

@@ -1,26 +1,44 @@
 import { useState } from "react"
 
-const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPreview, emailToBeDisplayed, setEmailToBeDisplayedId, setEmailDisplayVisible }) => {
+const EmailPreview = ({
+    getEmails,
+    getSentEmails,
+    id,
+    name,
+    subject,
+    dateCreated,
+    read,
+    bodyPreview,
+    emailToBeDisplayed,
+    sentNavActive,
+    setEmailToBeDisplayedId,
+    setEmailDisplayVisible
+}) => {
     const [emailRead, setEmailRead] = useState(read)
 
     const selectedStyles = () => {
-        if (emailToBeDisplayed && emailToBeDisplayed.id === id ) {
+        if (emailToBeDisplayed && emailToBeDisplayed.id === id) {
             return " text-white bg-primary"
-        } 
+        }
     }
 
-    const updateReadValue = (e) => {
-            fetch(`${process.env.REACT_APP_API_URL}/emails/${id}`, {
-                method: 'PUT',
-            })
+    const updateReadValue = () => {
+        fetch(`${process.env.REACT_APP_API_URL}/emails/${id}`, {
+            method: 'PUT',
+        })
             .then(data => data.json())
             .then((response) => {
-                if(response.data.updated) {
-                    setEmailRead('1')
-                    getEmails()
+                if (response.data.updated) {
+                    if (!sentNavActive) {
+                        setEmailRead('1')
+                        getEmails()
+                    } else {
+                        getSentEmails()
+
+                    }
                 }
             })
-        }
+    }
 
     const handleClick = () => {
         setEmailToBeDisplayedId(id)
@@ -29,9 +47,10 @@ const EmailPreview = ({ getEmails, id, name, subject, dateCreated, read, bodyPre
     }
 
     return (
-        <div 
-            onClick={handleClick} 
-            data-id={id} 
+
+        <div
+            onClick={handleClick}
+            data-id={id}
             className={"border p-3 " + (emailRead === '1' ? "read text-bg-light" : "unRead text-bg-secondary ") + selectedStyles()}
         >
             <div className="row">
