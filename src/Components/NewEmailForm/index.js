@@ -88,6 +88,7 @@ const NewEmailForm = ({
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        validateSubject()
         if (emailAddressValid &&
             emailBodyValid &&
             emailSubjectValid) {
@@ -123,7 +124,7 @@ const NewEmailForm = ({
                 <span className='text-danger'>{emailAddressValid === false ? "Invalid email address" : ''}</span>
             </div>
             <div className="mb-4">
-                <input onBlur={validateSubject} value={subject} onChange={handleSubjectChange} className="col form-control" name="subject" type="text" id="subject" placeholder="Subject"></input>
+                <input onKeyUp={validateSubject} value={subject} onChange={handleSubjectChange} className="col form-control" name="subject" type="text" id="subject" placeholder="Subject"></input>
                 <span className='text-danger'>{emailSubjectValid === false ? 'Email subject empty' : ''}</span>
             </div>
             <div className="input-group mb-4">
