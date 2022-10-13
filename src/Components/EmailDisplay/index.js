@@ -6,37 +6,19 @@ import './styles.scss';
 const EmailDisplay = ({ 
     emailToBeDisplayedId, 
     emailDisplayVisible, 
-    getSentEmails, 
-    sentNavActive,
     setEmailToBeDisplayedId, 
     setEmailDisplayVisible, 
     emailToBeDisplayed, 
     setEmailToBeDisplayed }) => {
 
-    const getEmailToBeDisplayed = () => {
-        if(!sentNavActive) {
-            fetch (`${process.env.REACT_APP_API_URL}/emails`)
-            .then(data => data.json())
-            .then((responses) => {
-                responses.data.map((response) => {
-                    if(response.id === emailToBeDisplayedId) {
-                        setEmailToBeDisplayed(response)
-                    }
-                })
-            })
-        } else { 
-            fetch (`${process.env.REACT_APP_API_URL}/emails/sent`)
-            .then(data => data.json())
-            .then((responses) => {
-                responses.data.map((response) => {
-                    if(response.id === emailToBeDisplayedId) {
-                        setEmailToBeDisplayed(response)
-                    }
-                })
-            })
-        }
+    const getEmailToBeDisplayed = async () => {
+        await fetch (`${process.env.REACT_APP_API_URL}/emails/${emailToBeDisplayedId}`)
+        .then(data => data.json())
+        .then((response) => {
+            setEmailToBeDisplayed(response.data.email)
+        })
     }
-
+    
     useEffect(() => {
         getEmailToBeDisplayed()
     }, [emailToBeDisplayedId])

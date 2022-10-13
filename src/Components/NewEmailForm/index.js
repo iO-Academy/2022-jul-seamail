@@ -3,9 +3,7 @@ import './style.scss'
 
 const NewEmailForm = ({
     setNewEmailVisible,
-    newEmailVisible,
     setSentNavActive,
-    sentNavActive,
     setInboxColorActive,
     setNewEmailColorActive,
     userName

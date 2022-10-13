@@ -17,8 +17,6 @@ const EmailList = ({
         setEmailToBeDisplayed, 
         newEmailVisible, 
         setNewEmailVisible, 
-        sentEmails, 
-        setSentEmails, 
         setSentNavActive, 
         sentNavActive,
         setInboxColorActive,

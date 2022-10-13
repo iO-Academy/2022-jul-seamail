@@ -98,7 +98,6 @@ const PageTemplate = (props) => {
                     emails={sentNavActive ? sentEmails : emails} 
                     setNewEmailVisible={setNewEmailVisible}
                     newEmailVisible={newEmailVisible}
-                    // setSentNavActive={setSentNavActive} 
                     sentNavActive={sentNavActive}
                     setInboxColorActive={setInboxColorActive}
                     newEmailColorActive={newEmailColorActive}
