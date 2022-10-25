@@ -39,11 +39,11 @@ Follow instructions within the README.md file of this repo to start the API
 Open http://localhost:3000 to view it in your browser.
 
 ### Authors
-- Aidan Maskell - [@aidanmaskell](github.com/aidanmaskell)
-- Chris Walton - [@cr-walton](github.com/cr-walton)
-- Emily Clarkson - [@erc-clarkson](github.com/erc-clarkson)
-- Joe Dixon - [@Jdixon04](github.com/jdixon04)
-- Josh Lewis - [@josh-lew](github.com/josh-lew)
-- Maria Fedorec-Kyte - [@mfk07](github.com/mfk07)
-- Mikey Ying - [@mikeycodingstuff](github.com/mikeycodingstuff)
+- Aidan Maskell - [@aidanmaskell](https://github.com/aidanmaskell)
+- Chris Walton - [@cr-walton](https://github.com/cr-walton)
+- Emily Clarkson - [@erc-clarkson](https://github.com/erc-clarkson)
+- Joe Dixon - [@Jdixon04](https://github.com/jdixon04)
+- Josh Lewis - [@josh-lew](https://github.com/josh-lew)
+- Maria Fedorec-Kyte - [@mfk07](https://github.com/mfk07)
+- Mikey Ying - [@mikeycodingstuff](https://github.com/mikeycodingstuff)
 
